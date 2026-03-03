@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payment Form</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<script src="js/mobile-menu.js"></script>
+<style>
+        :root {
+            --primary-pink: #ec4899;
+            --text-primary: #1f2937;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .form-input:focus-within, .form-input:focus {
+            border-color: #137fec !important;
+            box-shadow: 0 0 0 2px rgba(19, 127, 236, 0.2);
+        }
+        select {
+          --select-button-svg: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2724px%27 height=%2724px%27 fill=%27rgb(107,114,128)%27 viewBox=%270 0 256 256%27%3e%3cpath d=%27M215.39,92.61a8,8,0,0,0-11.38,0L128,168.63,52,92.61a8,8,0,0,0-11.38,11.38l81.38,81.38a8,8,0,0,0,11.38,0l81.38-81.38A8,8,0,0,0,215.39,92.61Z%27%3e%3c/path%3e%3c/svg%3e');
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          background-position: right 0.75rem center;
+          background-repeat: no-repeat;
+          background-size: 1.5em 1.5em;
+          padding-right: 2.5rem;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#343A40] dark:text-gray-300">
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 w-full h-[60px] bg-white shadow-md border-b border-gray-200">
+        <div class="container mx-auto h-full flex items-center justify-between px-4 lg:px-10">
+            <!-- Logo on far left -->
+            <a href="HermosaMimosa.html" class="flex items-center gap-3 text-[var(--text-primary)]">
+                <div class="h-8 w-8 text-[var(--primary-pink)]">
+                    <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z" fill="currentColor"></path>
+                    </svg>
+                </div>
+                <h2 class="text-lg font-bold tracking-tight">Hermosa Mimosa</h2>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden items-center gap-6 md:flex ml-auto">
+                <a class="text-sm font-medium text-gray-700 hover:text-[var(--primary-pink)] transition-colors h-[60px] flex items-center border-b-2 border-transparent hover:border-[var(--primary-pink)]" href="HermosaMimosa.html">Home</a>
+                <a class="text-sm font-medium text-gray-700 hover:text-[var(--primary-pink)] transition-colors h-[60px] flex items-center border-b-2 border-transparent hover:border-[var(--primary-pink)]" href="HermosaMimosa.html#about">About</a>
+                <a class="text-sm font-medium text-[var(--primary-pink)] transition-colors h-[60px] flex items-center border-b-2 border-[var(--primary-pink)] font-semibold" href="donate.html">Donate</a>
+                <a class="text-sm font-medium text-gray-700 hover:text-[var(--primary-pink)] transition-colors h-[60px] flex items-center border-b-2 border-transparent hover:border-[var(--primary-pink)]" href="index.html">Wiha</a>
+                <a class="text-sm font-medium text-gray-700 hover:text-[var(--primary-pink)] transition-colors h-[60px] flex items-center border-b-2 border-transparent hover:border-[var(--primary-pink)]" href="HermosaMimosa.html#programs">Programs</a>
+            </nav>
+            
+            <!-- Mobile menu button -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="text-gray-700 hover:text-[var(--primary-pink)] focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="HermosaMimosa.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-[var(--primary-pink)]">Home</a>
+                <a href="HermosaMimosa.html#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-[var(--primary-pink)]">About</a>
+                <a href="donate.html" class="block px-3 py-2 text-base font-medium text-[var(--primary-pink)] bg-gray-50">Donate</a>
+                <a href="index.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-[var(--primary-pink)]">Wiha</a>
+                <a href="HermosaMimosa.html#programs" class="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-[var(--primary-pink)]">Programs</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Add padding to account for fixed header -->
+    <div class="pt-[60px]"></div>
+
+<div class="relative flex min-h-screen w-full flex-col items-center justify-center group/design-root overflow-x-hidden p-4 sm:p-6 lg:p-8">
+<div class="layout-container flex h-full grow flex-col w-full max-w-md">
+<div class="flex flex-wrap justify-center gap-3 p-4">
+<p class="text-gray-800 dark:text-white text-2xl sm:text-3xl font-bold leading-tight tracking-[-0.033em]">Secure Payment</p>
+</div>
+
+<!-- Amount Section -->
+<div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 mb-6">
+    <div class="text-center">
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Select Currency & Amount</p>
+
+        <!-- Currency Selection -->
+        <div class="flex justify-center mb-4">
+            <select id="currency-select" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option value="USD">🇺🇸 US Dollar (USD)</option>
+                <option value="EUR">🇪🇺 Euro (EUR)</option>
+                <option value="NAD">🇳🇦 Namibian Dollar (NAD)</option>
+                <option value="ZAR">🇿🇦 Rand (ZAR)</option>
+                <option value="GBP">🇬🇧 British Pound (GBP)</option>
+            </select>
+        </div>
+
+        <div class="flex items-center justify-center gap-2">
+            <span id="currency-symbol" class="text-2xl font-bold text-blue-600">$</span>
+            <input type="number" id="payment-amount" class="text-3xl font-bold text-center bg-transparent border-none outline-none w-32 text-blue-600" placeholder="0.00" min="0" step="0.01">
+        </div>
+        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Enter the amount you wish to donate</p>
+    </div>
+</div>
+
+<div class="bg-white dark:bg-gray-800/50 rounded-lg shadow-sm p-4 sm:p-6 space-y-4">
+<div class="grid grid-cols-1 gap-4">
+<label class="flex flex-col">
+<p class="text-[#343A40] dark:text-gray-300 text-sm font-medium leading-normal pb-1">Card Number</p>
+<div class="flex w-full flex-1 items-stretch rounded-lg">
+<input id="card-number" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#343A40] dark:text-gray-300 focus:outline-none focus:ring-0 border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-900/50 h-10 placeholder:text-[#6C757D] dark:placeholder-gray-500 p-[12px] text-sm font-normal leading-normal" placeholder="0000 0000 0000 0000" value=""/>
+<div class="text-[#6C757D] dark:text-gray-500 flex border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-900/50 items-center justify-center px-3 rounded-r-lg border-l-0">
+<span class="material-symbols-outlined" style="font-size: 20px;">credit_card</span>
+</div>
+</div>
+</label>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<label class="flex flex-col">
+<p class="text-[#343A40] dark:text-gray-300 text-sm font-medium leading-normal pb-1">Expiration Date</p>
+<input id="expiry" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#343A40] dark:text-gray-300 focus:outline-none focus:ring-0 border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-900/50 h-10 placeholder:text-[#6C757D] dark:placeholder-gray-500 p-[12px] text-sm font-normal leading-normal" placeholder="MM/YY" value=""/>
+</label>
+<label class="flex flex-col">
+<p class="text-[#343A40] dark:text-gray-300 text-sm font-medium leading-normal pb-1">CVV</p>
+<div class="relative flex items-center">
+<input id="cvv" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#343A40] dark:text-gray-300 focus:outline-none focus:ring-0 border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-900/50 h-10 placeholder:text-[#6C757D] dark:placeholder-gray-500 p-[12px] text-sm font-normal leading-normal" placeholder="•••" value=""/>
+<div class="absolute right-3 text-[#6C757D] dark:text-gray-500 group">
+<span class="material-symbols-outlined cursor-help" style="font-size: 20px;">help_outline</span>
+<div class="absolute bottom-full mb-2 w-48 bg-gray-800 text-white text-xs rounded py-1 px-2 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 right-1/2 translate-x-1/2">
+                                    3 or 4-digit code on the back of your card.
+                                    <svg class="absolute text-gray-800 h-2 w-full left-0 top-full" viewbox="0 0 255 255" x="0px" xml:space="preserve" y="0px"><polygon class="fill-current" points="0,0 127.5,127.5 255,0"></polygon></svg>
+</div>
+</div>
+</div>
+</label>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<label class="flex flex-col">
+<p class="text-[#343A40] dark:text-gray-300 text-sm font-medium leading-normal pb-1">Full Name on Card</p>
+<input id="card-name" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#343A40] dark:text-gray-300 focus:outline-none focus:ring-0 border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-900/50 h-10 placeholder:text-[#6C757D] dark:placeholder-gray-500 p-[12px] text-sm font-normal leading-normal" placeholder="Enter full name" value=""/>
+</label>
+</div>
+<div class="pt-3 border-t border-gray-200 dark:border-gray-700">
+<p class="text-base font-semibold text-gray-800 dark:text-white mb-3">Billing Address</p>
+<div class="grid grid-cols-1 gap-4">
+<label class="flex flex-col">
+<p class="text-[#343A40] dark:text-gray-300 text-sm font-medium leading-normal pb-1">Country</p>
+<select class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#343A40] dark:text-gray-300 focus:outline-none focus:ring-0 border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-900/50 h-10 placeholder:text-[#6C757D] dark:placeholder-gray-500 p-[12px] text-sm font-normal leading-normal">
+<option value="">Select your country</option>
+<option value="afghanistan">Afghanistan</option>
+<option value="albania">Albania</option>
+<option value="algeria">Algeria</option>
+<option value="andorra">Andorra</option>
+<option value="angola">Angola</option>
+<option value="antigua-and-barbuda">Antigua and Barbuda</option>
+<option value="argentina">Argentina</option>
+<option value="armenia">Armenia</option>
+<option value="australia">Australia</option>
+<option value="austria">Austria</option>
+<option value="azerbaijan">Azerbaijan</option>
+<option value="bahamas">Bahamas</option>
+<option value="bahrain">Bahrain</option>
+<option value="bangladesh">Bangladesh</option>
+<option value="barbados">Barbados</option>
+<option value="belarus">Belarus</option>
+<option value="belgium">Belgium</option>
+<option value="belize">Belize</option>
+<option value="benin">Benin</option>
+<option value="bhutan">Bhutan</option>
+<option value="bolivia">Bolivia</option>
+<option value="bosnia-and-herzegovina">Bosnia and Herzegovina</option>
+<option value="botswana">Botswana</option>
+<option value="brazil">Brazil</option>
+<option value="brunei">Brunei</option>
+<option value="bulgaria">Bulgaria</option>
+<option value="burkina-faso">Burkina Faso</option>
+<option value="burundi">Burundi</option>
+<option value="cambodia">Cambodia</option>
+<option value="cameroon">Cameroon</option>
+<option value="canada">Canada</option>
+<option value="cape-verde">Cape Verde</option>
+<option value="central-african-republic">Central African Republic</option>
+<option value="chad">Chad</option>
+<option value="chile">Chile</option>
+<option value="china">China</option>
+<option value="colombia">Colombia</option>
+<option value="comoros">Comoros</option>
+<option value="congo">Congo</option>
+<option value="costa-rica">Costa Rica</option>
+<option value="croatia">Croatia</option>
+<option value="cuba">Cuba</option>
+<option value="cyprus">Cyprus</option>
+<option value="czech-republic">Czech Republic</option>
+<option value="denmark">Denmark</option>
+<option value="djibouti">Djibouti</option>
+<option value="dominica">Dominica</option>
+<option value="dominican-republic">Dominican Republic</option>
+<option value="east-timor">East Timor</option>
+<option value="ecuador">Ecuador</option>
+<option value="egypt">Egypt</option>
+<option value="el-salvador">El Salvador</option>
+<option value="england">England</option>
+<option value="equatorial-guinea">Equatorial Guinea</option>
+<option value="eritrea">Eritrea</option>
+<option value="estonia">Estonia</option>
+<option value="eswatini">Eswatini</option>
+<option value="ethiopia">Ethiopia</option>
+<option value="fiji">Fiji</option>
+<option value="finland">Finland</option>
+<option value="france">France</option>
+<option value="gabon">Gabon</option>
+<option value="gambia">Gambia</option>
+<option value="georgia">Georgia</option>
+<option value="germany">Germany</option>
+<option value="ghana">Ghana</option>
+<option value="greece">Greece</option>
+<option value="grenada">Grenada</option>
+<option value="guatemala">Guatemala</option>
+<option value="guinea">Guinea</option>
+<option value="guinea-bissau">Guinea-Bissau</option>
+<option value="guyana">Guyana</option>
+<option value="haiti">Haiti</option>
+<option value="honduras">Honduras</option>
+<option value="hungary">Hungary</option>
+<option value="iceland">Iceland</option>
+<option value="india">India</option>
+<option value="indonesia">Indonesia</option>
+<option value="iran">Iran</option>
+<option value="iraq">Iraq</option>
+<option value="ireland">Ireland</option>
+<option value="israel">Israel</option>
+<option value="italy">Italy</option>
+<option value="jamaica">Jamaica</option>
+<option value="japan">Japan</option>
+<option value="jordan">Jordan</option>
+<option value="kazakhstan">Kazakhstan</option>
+<option value="kenya">Kenya</option>
+<option value="kiribati">Kiribati</option>
+<option value="kuwait">Kuwait</option>
+<option value="kyrgyzstan">Kyrgyzstan</option>
+<option value="laos">Laos</option>
+<option value="latvia">Latvia</option>
+<option value="lebanon">Lebanon</option>
+<option value="lesotho">Lesotho</option>
+<option value="liberia">Liberia</option>
+<option value="libya">Libya</option>
+<option value="liechtenstein">Liechtenstein</option>
+<option value="lithuania">Lithuania</option>
+<option value="luxembourg">Luxembourg</option>
+<option value="madagascar">Madagascar</option>
+<option value="malawi">Malawi</option>
+<option value="malaysia">Malaysia</option>
+<option value="maldives">Maldives</option>
+<option value="mali">Mali</option>
+<option value="malta">Malta</option>
+<option value="marshall-islands">Marshall Islands</option>
+<option value="mauritania">Mauritania</option>
+<option value="mauritius">Mauritius</option>
+<option value="mexico">Mexico</option>
+<option value="micronesia">Micronesia</option>
+<option value="moldova">Moldova</option>
+<option value="monaco">Monaco</option>
+<option value="mongolia">Mongolia</option>
+<option value="montenegro">Montenegro</option>
+<option value="morocco">Morocco</option>
+<option value="mozambique">Mozambique</option>
+<option value="myanmar">Myanmar</option>
+<option value="namibia">Namibia</option>
+<option value="nauru">Nauru</option>
+<option value="nepal">Nepal</option>
+<option value="netherlands">Netherlands</option>
+<option value="new-zealand">New Zealand</option>
+<option value="nicaragua">Nicaragua</option>
+<option value="niger">Niger</option>
+<option value="nigeria">Nigeria</option>
+<option value="north-korea">North Korea</option>
+<option value="north-macedonia">North Macedonia</option>
+<option value="northern-ireland">Northern Ireland</option>
+<option value="norway">Norway</option>
+<option value="oman">Oman</option>
+<option value="pakistan">Pakistan</option>
+<option value="palau">Palau</option>
+<option value="panama">Panama</option>
+<option value="papua-new-guinea">Papua New Guinea</option>
+<option value="paraguay">Paraguay</option>
+<option value="peru">Peru</option>
+<option value="philippines">Philippines</option>
+<option value="poland">Poland</option>
+<option value="portugal">Portugal</option>
+<option value="qatar">Qatar</option>
+<option value="romania">Romania</option>
+<option value="russia">Russia</option>
+<option value="rwanda">Rwanda</option>
+<option value="saint-kitts-and-nevis">Saint Kitts and Nevis</option>
+<option value="saint-lucia">Saint Lucia</option>
+<option value="saint-vincent-and-the-grenadines">Saint Vincent and the Grenadines</option>
+<option value="samoa">Samoa</option>
+<option value="san-marino">San Marino</option>
+<option value="sao-tome-and-principe">Sao Tome and Principe</option>
+<option value="saudi-arabia">Saudi Arabia</option>
+<option value="scotland">Scotland</option>
+<option value="senegal">Senegal</option>
+<option value="serbia">Serbia</option>
+<option value="seychelles">Seychelles</option>
+<option value="sierra-leone">Sierra Leone</option>
+<option value="singapore">Singapore</option>
+<option value="slovakia">Slovakia</option>
+<option value="slovenia">Slovenia</option>
+<option value="solomon-islands">Solomon Islands</option>
+<option value="somalia">Somalia</option>
+<option value="south-africa">South Africa</option>
+<option value="south-korea">South Korea</option>
+<option value="south-sudan">South Sudan</option>
+<option value="spain">Spain</option>
+<option value="sri-lanka">Sri Lanka</option>
+<option value="sudan">Sudan</option>
+<option value="suriname">Suriname</option>
+<option value="sweden">Sweden</option>
+<option value="switzerland">Switzerland</option>
+<option value="syria">Syria</option>
+<option value="taiwan">Taiwan</option>
+<option value="tajikistan">Tajikistan</option>
+<option value="tanzania">Tanzania</option>
+<option value="thailand">Thailand</option>
+<option value="togo">Togo</option>
+<option value="tonga">Tonga</option>
+<option value="tunisia">Tunisia</option>
+<option value="turkey">Turkey</option>
+<option value="turkmenistan">Turkmenistan</option>
+<option value="tuvalu">Tuvalu</option>
+<option value="uganda">Uganda</option>
+<option value="ukraine">Ukraine</option>
+<option value="united-arab-emirates">United Arab Emirates</option>
+<option value="united-kingdom">United Kingdom</option>
+<option value="united-states">United States</option>
+<option value="uruguay">Uruguay</option>
+<option value="uzbekistan">Uzbekistan</option>
+<option value="vanuatu">Vanuatu</option>
+<option value="vatican-city">Vatican City</option>
+<option value="venezuela">Venezuela</option>
+<option value="vietnam">Vietnam</option>
+<option value="wales">Wales</option>
+<option value="yemen">Yemen</option>
+<option value="zambia">Zambia</option>
+<option value="zimbabwe">Zimbabwe</option>
+</select>
+</label>
+<label class="flex flex-col">
+<p class="text-[#343A40] dark:text-gray-300 text-sm font-medium leading-normal pb-1">Street Address</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#343A40] dark:text-gray-300 focus:outline-none focus:ring-0 border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-900/50 h-10 placeholder:text-[#6C757D] dark:placeholder-gray-500 p-[12px] text-sm font-normal leading-normal" value=""/>
+</label>
+<div class="grid grid-cols-1 gap-4">
+<label class="flex flex-col">
+<p class="text-[#343A40] dark:text-gray-300 text-sm font-medium leading-normal pb-1">City</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#343A40] dark:text-gray-300 focus:outline-none focus:ring-0 border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-900/50 h-10 placeholder:text-[#6C757D] dark:placeholder-gray-500 p-[12px] text-sm font-normal leading-normal" value=""/>
+</label>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-center pt-4">
+<button onclick="processPayment()" class="flex w-full items-center justify-center rounded-lg bg-primary h-10 px-4 text-sm font-bold text-white transition-colors duration-200 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/50">Pay Now</button>
+<div class="flex items-center mt-3 text-xs text-[#6C757D] dark:text-gray-400">
+<span class="material-symbols-outlined mr-1" style="font-size: 14px;">lock</span>
+<span>Your payment is secure</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Payment Success Modal -->
+<div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-xl shadow-2xl p-8 max-w-md mx-4 transform scale-95 transition-all duration-300">
+        <div class="text-center">
+            <!-- Success Icon -->
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Payment Successful!</h2>
+            <p class="text-gray-600 mb-6">Thank you for your generous donation to Women in Health Africa.</p>
+
+            <!-- Transaction Details -->
+            <div class="bg-gray-50 rounded-lg p-4 mb-6 text-left">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-sm text-gray-600">Amount:</span>
+                    <span class="font-semibold text-lg text-green-600" id="success-amount">$0.00</span>
+                </div>
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-sm text-gray-600">Transaction ID:</span>
+                    <span class="font-mono text-sm" id="success-transaction">TXN-2026-001</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-sm text-gray-600">Date:</span>
+                    <span class="text-sm" id="success-date">October 20, 2026</span>
+                </div>
+            </div>
+
+            <!-- Impact Message -->
+            <div class="bg-blue-50 rounded-lg p-4 mb-6">
+                <p class="text-sm text-blue-800">
+                    🎉 Your donation will help empower women across Africa through health education, wellness programs, and community support.
+                </p>
+            </div>
+
+            <!-- Actions -->
+            <div class="space-y-3">
+                <button onclick="closeSuccessModal()" class="w-full bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors">
+                    Continue to Home
+                </button>
+                <button onclick="shareDonation()" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-2 px-4 rounded-lg text-sm transition-colors">
+                    Share Your Impact
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Payment Failure Modal -->
+<div id="failure-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-xl shadow-2xl p-8 max-w-md mx-4 transform scale-95 transition-all duration-300">
+        <div class="text-center">
+            <!-- Failure Icon -->
+            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </div>
+
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Payment Failed</h2>
+            <p class="text-gray-600 mb-6">We couldn't process your payment. Please check your details and try again.</p>
+
+            <!-- Error Details -->
+            <div class="bg-red-50 border border-red-200 rounded-lg p-4 mb-6 text-left">
+                <h3 class="font-semibold text-red-800 mb-2">Possible reasons:</h3>
+                <ul class="text-sm text-red-700 space-y-1">
+                    <li>• Insufficient funds</li>
+                    <li>• Incorrect card details</li>
+                    <li>• Card expired or blocked</li>
+                    <li>• Network connectivity issues</li>
+                </ul>
+            </div>
+
+            <!-- Support Info -->
+            <div class="bg-blue-50 rounded-lg p-4 mb-6">
+                <p class="text-sm text-blue-800">
+                    💬 Need help? Contact our support team at
+                    <a href="mailto:support@womeninhealthafrica.org" class="font-semibold underline">support@womeninhealthafrica.org</a>
+                </p>
+            </div>
+
+            <!-- Actions -->
+            <div class="space-y-3">
+                <button onclick="retryPayment()" class="w-full bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors">
+                    Try Again
+                </button>
+                <button onclick="closeFailureModal()" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-2 px-4 rounded-lg text-sm transition-colors">
+                    Back to Payment
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function processPayment() {
+    // Get form values
+    const paymentAmount = document.getElementById('payment-amount').value;
+    const firstName = document.getElementById('first-name').value;
+    const lastName = document.getElementById('last-name').value;
+    const email = document.getElementById('email').value;
+    const cardNumber = document.getElementById('card-number').value;
+    const expiry = document.getElementById('expiry').value;
+    const cvv = document.getElementById('cvv').value;
+    const cardName = document.getElementById('card-name').value;
+
+    // Basic validation
+    if (!paymentAmount || !firstName || !lastName || !email || !cardNumber || !expiry || !cvv || !cardName) {
+        showFailureModal('Please fill in all required fields.');
+        return;
+    }
+
+    const amount = parseFloat(paymentAmount);
+    if (isNaN(amount) || amount <= 0) {
+        showFailureModal('Please enter a valid donation amount.');
+        return;
+    }
+
+    // Show loading state
+    const button = document.querySelector('.bg-primary');
+    const originalText = button.textContent;
+    button.textContent = 'Processing...';
+    button.disabled = true;
+
+    // Simulate payment processing
+    setTimeout(() => {
+        // Simulate success/failure (90% success rate for demo)
+        const isSuccess = Math.random() > 0.1;
+
+        if (isSuccess) {
+            showSuccessModal(amount, paymentAmount);
+            // Reset form
+            document.getElementById('payment-amount').value = '';
+            document.getElementById('first-name').value = '';
+            document.getElementById('last-name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('card-number').value = '';
+            document.getElementById('expiry').value = '';
+            document.getElementById('cvv').value = '';
+            document.getElementById('card-name').value = '';
+        } else {
+            showFailureModal('Payment failed. Please check your card details and try again.');
+        }
+
+        // Reset button
+        button.textContent = originalText;
+        button.disabled = false;
+    }, 2000);
+}
+
+function showSuccessModal(amount, formattedAmount) {
+    // Generate transaction details
+    const transactionId = 'TXN-' + Date.now().toString().slice(-8);
+    const currentDate = new Date().toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+
+    // Update modal content
+    document.getElementById('success-amount').textContent = formattedAmount;
+    document.getElementById('success-transaction').textContent = transactionId;
+    document.getElementById('success-date').textContent = currentDate;
+
+    // Show modal with animation
+    const modal = document.getElementById('success-modal');
+    modal.classList.remove('hidden');
+    setTimeout(() => {
+        modal.querySelector('.transform').classList.remove('scale-95');
+    }, 10);
+}
+
+function closeSuccessModal() {
+    const modal = document.getElementById('success-modal');
+    modal.querySelector('.transform').classList.add('scale-95');
+    setTimeout(() => {
+        modal.classList.add('hidden');
+        // Redirect to home page
+        window.location.href = 'HermosaMimosa.html';
+    }, 300);
+}
+
+function showFailureModal(errorMessage) {
+    const errorText = document.getElementById('failure-error-text');
+    if (errorText) {
+        errorText.textContent = errorMessage;
+    }
+
+    const modal = document.getElementById('failure-modal');
+    modal.classList.remove('hidden');
+    setTimeout(() => {
+        modal.querySelector('.transform').classList.remove('scale-95');
+    }, 10);
+}
+
+function closeFailureModal() {
+    const modal = document.getElementById('failure-modal');
+    modal.querySelector('.transform').classList.add('scale-95');
+    setTimeout(() => {
+        modal.classList.add('hidden');
+    }, 300);
+}
+
+function retryPayment() {
+    closeFailureModal();
+    // Focus on the payment form
+    document.getElementById('payment-amount').focus();
+}
+
+function shareDonation() {
+    // Simple share functionality
+    if (navigator.share) {
+        navigator.share({
+            title: 'I just donated to Women in Health Africa!',
+            text: 'Help empower women across Africa through health and wellness programs.',
+            url: window.location.origin
+        });
+    } else {
+        // Fallback for browsers that don't support Web Share API
+        const url = window.location.origin;
+        navigator.clipboard.writeText(`I just supported Women in Health Africa! Check them out: ${url}`);
+        alert('Link copied to clipboard!');
+    }
+}
+
+// Currency symbols mapping
+const currencySymbols = {
+    'USD': '$',
+    'EUR': '€',
+    'NAD': 'N$',
+    'ZAR': 'R',
+    'GBP': '£'
+};
+
+// Update currency symbol when selection changes
+function updateCurrencySymbol() {
+    const currencySelect = document.getElementById('currency-select');
+    const selectedCurrency = currencySelect.value;
+    const symbol = currencySymbols[selectedCurrency] || '$';
+
+    document.getElementById('currency-symbol').textContent = symbol;
+}
+
+// Initialize currency symbol and add event listener
+document.addEventListener('DOMContentLoaded', function() {
+    updateCurrencySymbol();
+    document.getElementById('currency-select').addEventListener('change', updateCurrencySymbol);
+});
+</script>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white">
+    <div class="container mx-auto px-4 py-12">
+        <div class="flex flex-col items-center justify-between gap-8 md:flex-row">
+            <div class="flex items-center gap-3">
+                <div class="h-10 w-10 text-[var(--primary-pink)]">
+                    <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z" fill="currentColor"></path>
+                    </svg>
+                </div>
+                <div class="text-center md:text-left">
+                    <h2 class="text-2xl font-bold text-white">Hermosa Mimosa</h2>
+                    <p class="text-pink-300">Women in Health Africa</p>
+                </div>
+            </div>
+            <div class="flex gap-6">
+                <a href="HermosaMimosa-privacy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+                <a href="HermosaMimosa-terms.html" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+                <a href="HermosaMimosa-contact.html" class="text-gray-400 hover:text-white transition-colors">Contact Us</a>
+            </div>
+            <div class="flex gap-4">
+                <a class="text-gray-400 hover:text-[var(--primary-pink)] transition-colors" href="https://www.facebook.com/hermosamimosa">
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </a>
+                <a class="text-gray-400 hover:text-[var(--primary-pink)] transition-colors" href="https://www.instagram.com/hermosa_mimosa_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                <a class="text-gray-400 hover:text-pink-500 transition-colors" href="https://www.tiktok.com/@hermosamimosa">
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                    </svg>
+                </a>
+                <a class="text-gray-400 hover:text-red-500 transition-colors" href="https://www.youtube.com/@hermosamimosa">
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="mt-8 border-t border-gray-700 pt-8 text-center text-gray-400">
+            <p>&copy; 2026 Hermosa Mimosa - Women in Health Africa. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Mobile menu script -->
+<script src="js/mobile-menu.js"></script>
+</body>
+</html>

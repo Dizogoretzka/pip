@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+    <title>Women in Health Africa - Home</title>
+    
+    <!-- Offline-friendly CSS fallback -->
+    <link rel="stylesheet" href="css/offline-fallback-new.css" />
+    
+    <!-- External CDN with fallbacks -->
+    <script>
+        // Load external resources with fallbacks
+        function loadWithFallback(src, fallback, type) {
+            if (type === 'script') {
+                const script = document.createElement('script');
+                script.src = src;
+                script.onerror = function() {
+                    console.log('Failed to load external resource, using fallback');
+                    if (fallback) fallback();
+                };
+                document.head.appendChild(script);
+            } else if (type === 'link') {
+                const link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = src;
+                link.onerror = function() {
+                    console.log('Failed to load external CSS, using fallback');
+                    if (fallback) fallback();
+                };
+                document.head.appendChild(link);
+            }
+        }
+        
+        // Try to load Tailwind CSS from CDN, fallback to local CSS
+        loadWithFallback('https://cdn.tailwindcss.com', null, 'script');
+        
+        // Try to load Google Fonts, fallback to system fonts
+        loadWithFallback('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap', null, 'link');
+        
+        // Try to load Material Icons, fallback to local CSS
+        loadWithFallback('https://fonts.googleapis.com/icon?family=Material+Icons', null, 'link');
+        
+        // Try to load Font Awesome, fallback to local CSS
+        loadWithFallback('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css', null, 'link');
+        
+        // Try to load Swiper CSS, fallback to local CSS
+        loadWithFallback('https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', null, 'link');
+        
+        // Try to load Swiper JS with fallback
+        function loadSwiperJS() {
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
+            script.onerror = function() {
+                console.log('Swiper JS failed to load, using minimal fallback');
+                // Create a minimal Swiper replacement
+                window.Swiper = function(element, options) {
+                    return {
+                        slideNext: function() { console.log('Swiper fallback: slideNext'); },
+                        slidePrev: function() { console.log('Swiper fallback: slidePrev'); },
+                        on: function(event, callback) { console.log('Swiper fallback: on ' + event); }
+                    };
+                };
+            };
+            document.head.appendChild(script);
+        }
+        loadSwiperJS();
+    </script>
+    
+    <!-- Cookie Consent CSS -->
+    <link rel="stylesheet" href="css/cookie-consent.css" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
+    />
+    <style>
+
+        /* Mobile menu animations */
+        .mobile-submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .mobile-menu-item.active .mobile-submenu {
+            max-height: 1000px; /* Adjust based on your content */
+            transition: max-height 0.5s ease-in;
+        }
+        
+        .rotate-180 {
+            transform: rotate(180deg);
+        }
+        
+        .transition-transform {
+            transition: transform 0.2s ease-in-out;
+        }
+
+        :root {
+            --primary-color: #b76614;
+            --background-color: #f8f4f0;
+            --text-primary: #3e2723;
+            --text-secondary: #795548;
+            --accent-color: #d7ccc8;
+            --footer-bg: #C4B5A5;
+            --footer-text: #3e2723;
+            --nav-bg: #EAE0D5;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            padding-top: 60px; /* Adjusted for 60px nav */
+        }
+
+        /* Responsive Navigation Styles */
+        .nav-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        @media (max-width: 1024px) {
+            .mobile-menu {
+                transform: translateX(100%);
+                transition: transform 0.3s ease-in-out;
+            }
+            
+            .mobile-menu.active {
+                transform: translateX(0);
+            }
+            
+            .mobile-submenu.active {
+                max-height: 500px;
+            }
+        }
+
+        /* Navigation Hover Effects */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #8B4513;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Dropdown hover delay */
+        .dropdown-group {
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-group:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        /* Cohere-style Logo */
+        .cohere-logo {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-weight: 500;
+            font-size: 1.25rem;
+            color: #166534;
+            letter-spacing: -0.025em;
+        }
+
+        .cohere-logo .o-gap {
+            position: relative;
+        }
+
+        .cohere-logo .o-gap::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+        }
+    
+/* Contact Form Input Styling */
+        .input {
+            padding: 12px 16px;
+            border: 2px solid #d7ccc8;
+            border-radius: 8px;
+            background-color: #ffffff;
+            color: #3e2723;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .input:focus {
+            outline: none;
+            border-color: #b76614;
+            background-color: #fdf8f6;
+            box-shadow: 0 0 0 3px rgba(183, 102, 20, 0.1);
+        }
+
+        .input::placeholder {
+            color: #795548;
+        }
+
+        /* Search Results Styling */
+        .search-result-item {
+            padding: 16px;
+            border-bottom: 1px solid #e5e7eb;
+            transition: background-color 0.2s ease;
+            cursor: pointer;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+
+        .search-result-item:hover {
+            background-color: #f9fafb;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .search-result-title {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 4px;
+            font-size: 18px;
+        }
+
+        .search-result-description {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .search-result-category {
+            display: inline-block;
+            background-color: #f3f4f6;
+            color: #6b7280;
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-top: 8px;
+        }
+
+        .no-results {
+            padding: 40px;
+            text-align: center;
+            color: #6b7280;
+            font-size: 18px;
+        }
+
+        /* Search highlight */
+        .search-highlight {
+            background-color: #fef3c7;
+            padding: 2px;
+            border-radius: 2px;
+        }
+
+        /* Desktop Search Results Container */
+        .desktop-search-results {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            max-height: 70vh;
+            width: 90%;
+            max-width: 700px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .desktop-search-results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 24px 24px 16px 24px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .desktop-search-results-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .close-search-results {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #6b7280;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .close-search-results:hover {
+            color: #374151;
+            background-color: #f3f4f6;
+        }
+
+        /* Search field in results popup */
+        .search-results-input-container {
+            padding: 0 24px 16px 24px;
+        }
+
+        .search-results-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .search-results-input:focus {
+            outline: none;
+            border-color: #b76614;
+            box-shadow: 0 0 0 3px rgba(183, 102, 20, 0.1);
+        }
+
+        .search-results-content {
+            padding: 0 24px 24px 24px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        /* Search Overlay */
+        .search-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            backdrop-filter: blur(4px);
+        }
+
+        /* Mobile Search Results */
+        .mobile-search-results {
+            max-height: 60vh;
+            overflow-y: auto;
+            margin-top: 16px;
+        }
+
+        /* Fixed Navigation with optimized height */
+        .fixed-nav {
+            height: 70px !important; /* Reduced from 80px to 70px */
+            padding-top: 10px; /* Adjusted padding */
+            padding-bottom: 10px;
+        }
+
+        /* Navigation content alignment */
+        .nav-content {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        /* Loading Screen Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+        @keyframes slideUp {
+            from { 
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to { 
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .loading-fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .loading-fade-out {
+            animation: fadeOut 0.5s ease-in-out forwards;
+        }
+
+        .loading-slide-up {
+            animation: slideUp 0.6s ease-out;
+        }
+
+        /* Hide main content initially */
+        .main-content {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .main-content.loaded {
+            opacity: 1;
+        }
+
+        /* Enhanced Loading Animation */
+        #loading-screen {
+            background: linear-gradient(135deg, #f8f4f0 0%, #e6b88a 100%);
+        }
+
+        .loading-logo {
+            animation: logoPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes logoPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .loading-text {
+            animation: textSlide 1s ease-out;
+        }
+
+        @keyframes textSlide {
+            from { 
+                transform: translateY(10px);
+                opacity: 0;
+            }
+            to { 
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .loading-dots {
+            animation: dotsBounce 1.5s ease-in-out infinite;
+        }
+
+        @keyframes dotsBounce {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body id="index-page" class="bg-white">
+<!-- Loading Animation -->
+<div id="loading-screen" class="fixed inset-0 z-[9999] flex items-center justify-center">
+    <div class="text-center">
+        <div class="relative w-24 h-24 mx-auto mb-4 loading-logo">
+            <!-- Main rotating circle -->
+            <div class="absolute inset-0 border-4 border-[#b76614] border-t-transparent rounded-full animate-spin"></div>
+            <!-- Center logo placeholder -->
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
+                    <span class="text-[#b76614] font-bold text-sm">WIHA</span>
+                </div>
+            </div>
+        </div>
+        <div class="text-[#3e2723] font-medium mb-2 loading-text">Women in Health Africa</div>
+        <!-- Progress dots -->
+        <div class="flex justify-center space-x-2 mt-4 loading-dots">
+            <div class="w-2 h-2 bg-[#b76614] rounded-full animate-pulse"></div>
+            <div class="w-2 h-2 bg-[#b76614] rounded-full animate-pulse" style="animation-delay: 0.2s;"></div>
+            <div class="w-2 h-2 bg-[#b76614] rounded-full animate-pulse" style="animation-delay: 0.4s;"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+<!-- Fixed Top Navigation - 60px height -->
+<nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 h-[60px] border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-6 h-full">
+        <div class="flex items-center h-full">
+            <!-- Logo -->
+            <div class="flex-shrink-0">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <div class="w-10 h-10 border-2 border-gray-300 rounded-full flex items-center justify-center hover:border-gray-400 transition-colors">
+                        <span class="text-gray-400 text-sm">Logo</span>
+                    </div>
+                    <span class="hidden sm:block font-semibold text-base text-green-800 tracking-tight">Women In Health Africa</span>
+                </a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden lg:flex items-center space-x-8 ml-auto h-full">
+                <!-- Home -->
+                <a href="index.html" class="text-gray-700 text-sm font-medium hover:text-[#b76614] transition-colors relative group h-full flex items-center px-1">
+                    Home
+                    <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-[#b76614] group-hover:w-10 transition-all duration-300 rounded-full"></span>
+                </a>
+                
+                <!-- About Dropdown -->
+                <div class="relative group h-full flex items-center">
+                    <button class="text-gray-700 text-sm font-medium hover:text-[#b76614] transition-colors flex items-center px-1">
+                        <span>About</span>
+                        <span class="material-icons text-sm ml-1">expand_more</span>
+                    </button>
+                    <div class="absolute top-full left-0 bg-white border border-gray-200 rounded-lg shadow-xl py-2 min-w-[220px] opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-10">
+                        <a href="mission-vision-statement.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#b76614] hover:bg-gray-50 transition-colors border-b border-gray-100">Mission, Vision & Statement</a>
+                        <a href="meet-the-founder.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#b76614] hover:bg-gray-50 transition-colors border-b border-gray-100">Meet the Founder</a>
+                        <a href="meet-the-team.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#b76614] hover:bg-gray-50 transition-colors border-b border-gray-100">Meet the Team</a>
+                        <a href="library.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#b76614] hover:bg-gray-50 transition-colors">Library</a>
+                    </div>
+                </div>
+
+                <!-- Features -->
+                <a href="features.html" class="text-gray-700 text-sm font-medium hover:text-[#b76614] transition-colors relative group h-full flex items-center px-1">
+                    Features
+                    <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-[#b76614] group-hover:w-10 transition-all duration-300 rounded-full"></span>
+                </a>
+                
+                <!-- Initiatives Dropdown -->
+                <div class="relative group h-full flex items-center">
+                    <button class="text-gray-700 text-sm font-medium hover:text-[#b76614] transition-colors flex items-center px-1">
+                        <span>Initiative</span>
+                        <span class="material-icons text-sm ml-1">expand_more</span>
+                    </button>
+                    <div class="absolute top-full left-0 bg-white border border-gray-200 rounded-lg shadow-xl py-2 min-w-[200px] opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-10">
+                        <a href="HermosaMimosa.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#b76614] hover:bg-gray-50 transition-colors">Hermosa Mimosa</a>
+                    </div>
+                </div>
+
+                <!-- Get Involved -->
+                <a href="get-involved.html" class="text-gray-700 text-sm font-medium hover:text-[#b76614] transition-colors relative group h-full flex items-center px-1">
+                    Get Involved
+                    <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-[#b76614] group-hover:w-10 transition-all duration-300 rounded-full"></span>
+                </a>
+                
+                <!-- Donate Button -->
+                <a href="#" data-donate class="text-gray-700 text-sm font-medium hover:text-[#b76614] transition-colors relative group h-full flex items-center px-2 py-1 bg-yellow-300 rounded hover:bg-yellow-400">
+                    <svg class="w-4 h-4 mr-1 inline text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                    <span class="text-gray-800">Donate</span>
+                </a>
+                
+                <!-- Search Bar -->
+                <div class="relative ml-4">
+                    <input type="text" 
+                           id="desktop-search" 
+                           placeholder="Search..." 
+                           class="w-48 px-4 py-2.5 text-sm text-gray-700 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#b76614] focus:border-transparent transition-all duration-200 shadow-sm">
+                    <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Icons - Search icon removed -->
+            <div class="lg:hidden flex items-center ml-auto">
+                <!-- Mobile Menu Button only (no search icon) -->
+                <button class="text-gray-700 hover:text-[#b76614] p-2 rounded-full transition-colors" id="mobile-menu-button" aria-label="Open menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-50 hidden transition-opacity duration-300" id="mobile-menu-overlay">
+    <div class="fixed inset-y-0 right-0 max-w-xs w-full bg-white shadow-xl transform translate-x-full transition-transform duration-300" id="mobile-menu">
+        <div class="flex flex-col h-full">
+            <!-- Mobile Menu Header -->
+            <div class="flex items-center justify-between px-6 py-4 border-b border-gray-200 bg-gray-50">
+                <h2 class="text-lg font-semibold text-gray-900">Menu</h2>
+                <button class="text-gray-500 hover:text-gray-700 p-2 rounded-full" id="close-mobile-menu" aria-label="Close menu">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+
+            <!-- Mobile Search Bar -->
+            <div class="px-6 py-4 border-b border-gray-200">
+                <div class="relative">
+                    <input type="text" 
+                           placeholder="Search..." 
+                           class="w-full px-4 py-2.5 text-sm text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#b76614] focus:border-transparent transition-all duration-200">
+                    <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Links -->
+            <nav class="flex-1 overflow-y-auto px-6 py-4">
+                <div class="space-y-1">
+                    <!-- Home -->
+                    <a href="index.html" class="block py-3 px-3 text-base font-medium text-gray-700 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                        Home
+                    </a>
+
+                    <!-- About Section -->
+                    <div class="mobile-menu-item">
+                        <button class="flex items-center justify-between w-full py-3 px-3 text-base font-medium text-gray-700 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200 mobile-submenu-toggle">
+                            <span class="font-semibold">About</span>
+                            <span class="material-icons transform transition-transform duration-200">expand_more</span>
+                        </button>
+                        <div class="mobile-submenu hidden pl-4 space-y-1 mt-1">
+                            <a href="mission-vision-statement.html" class="block py-2.5 px-3 text-sm text-gray-600 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                                Mission, Vision & Statement
+                            </a>
+                            <a href="meet-the-founder.html" class="block py-2.5 px-3 text-sm text-gray-600 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                                Meet the Founder
+                            </a>
+                            <a href="meet-the-team.html" class="block py-2.5 px-3 text-sm text-gray-600 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                                Meet the Team
+                            </a>
+                            <a href="library.html" class="block py-2.5 px-3 text-sm text-gray-600 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                                Library
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Features -->
+                    <a href="features.html" class="block py-3 px-3 text-base font-medium text-gray-700 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                        Features
+                    </a>
+
+                    <!-- Initiatives Section -->
+                    <div class="mobile-menu-item">
+                        <button class="flex items-center justify-between w-full py-3 px-3 text-base font-medium text-gray-700 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200 mobile-submenu-toggle">
+                            <span class="font-semibold">Initiative</span>
+                            <span class="material-icons transform transition-transform duration-200">expand_more</span>
+                        </button>
+                        <div class="mobile-submenu hidden pl-4 space-y-1 mt-1">
+                            <a href="HermosaMimosa.html" class="block py-2.5 px-3 text-sm text-gray-600 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                                Hermosa Mimosa
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Get Involved -->
+                    <a href="get-involved.html" class="block py-3 px-3 text-base font-medium text-gray-700 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                        Get Involved
+                    </a>
+                    
+                    <!-- Donate -->
+                    <a href="#" data-donate class="block px-3 py-2 text-base font-medium bg-yellow-300 rounded hover:bg-yellow-400">
+                        <svg class="w-4 h-4 mr-1 inline text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                        <span class="text-black">Donate</span>
+                    </a>
+                </div>
+            </nav>
+
+            <!-- Mobile Footer -->
+            <div class="px-6 py-4 border-t border-gray-200">
+                <p class="text-xs text-gray-500 text-center">Women in Health Africa © 2026</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Desktop Search Results Container -->
+<div id="desktop-search-overlay" class="search-overlay hidden"></div>
+<div id="desktop-search-results" class="desktop-search-results hidden">
+    <div class="desktop-search-results-header">
+        <div class="desktop-search-results-title">Search Results</div>
+        <button class="close-search-results" id="close-desktop-search">
+            <span class="material-icons">close</span>
+        </button>
+    </div>
+    <div class="search-results-input-container">
+        <input type="text" 
+               id="search-results-input" 
+               placeholder="Search..." 
+               class="search-results-input">
+    </div>
+    <div id="desktop-search-results-content" class="search-results-content"></div>
+</div>
+
+<!-- Rest of your content remains the same -->
+<!-- Full-Screen Hero Banner -->
+<div class="relative min-h-screen w-full flex items-end justify-start overflow-hidden bg-black">
+  <!-- Background Image with Gradient Overlay -->
+  <div class="absolute inset-0 z-0">
+      <img src="Images/Image for Forbes.JPG"
+           alt="Hermosa Mimosa - Women in Health Africa"
+           class="w-full h-full object-cover object-center">
+      <!-- Gradient Overlay for Enhanced Contrast -->
+      <div class="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/50"></div>
+  </div>
+
+  <!-- Hero Content -->
+  <div class="relative z-10 px-4 sm:px-8 md:px-16 max-w-2xl mb-16">
+      <!-- Hermosa Mimosa Branding -->
+      <div class="text-left">
+          <!-- Subtitle -->
+          <p class="text-white font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 max-w-xl">
+              Empowering Women in Healthcare<br>
+              Across Africa
+          </p>
+
+          <!-- Description -->
+          <p class="text-white/80 text-sm sm:text-base mb-8 max-w-xl font-light">
+              Join our community of healthcare professionals dedicated to advancing women's roles in the medical field throughout Africa.
+          </p>
+      </div>
+
+      <!-- Call-to-Action Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4">
+          <a href="get-involved.html"
+             class="bg-[#EAE0D5] hover:bg-[#D4C4B5] text-gray-800 font-semibold rounded-full px-8 py-4 text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+              Get Involved
+          </a>
+          <a href="HermosaMimosa.html"
+             class="bg-[#b76614] hover:bg-[#a05a12] text-white font-semibold rounded-full px-8 py-4 text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+              Our Initiatives
+          </a>
+      </div>
+  </div>
+</div>
+
+<!-- Welcome Section -->
+<div class="bg-gray-200 py-16 sm:py-24">
+  <div class="container mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+          <div class="order-2 md:order-1">
+              <img alt="A woman in colorful attire posing next to a palm tree" class="rounded-lg shadow-lg w-full h-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4Ispnc9d9OrGH-rhSlwchxSnnqwvHcJLHvv4n4KVgyatnT5HXDNUq_SVlhGraXNignz9mN92CKEObsg32wByqk7mzxHkFOZRNpspE2E25SPwJ35mlnC-A_JGjNiLQDXWgeCRhj510tdhX0NOTieGYt_RkFlc-0WpongM7pKwKbqqEnoe2IupNVr9fgm5HSMecpZthr4XeoyNCRx025MHgwEbyDoDwgOo_s90ZZE72gziNQzTqtxRyIeUAHfVG-nQMsO-cDCw5KWw"/>
+          </div>
+          <div class="order-1 md:order-2">
+              <h2 class="text-4xl sm:text-5xl text-gray-800 mb-6">Welcome to the Squad!</h2>
+              <p class="text-gray-600 leading-relaxed text-base sm:text-lg">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- FAQ Section -->
+<div class="bg-white py-8">
+  <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Frequently Asked Questions</h2>
+      <div class="max-w-2xl mx-auto space-y-2">
+          <!-- FAQ Item 1 -->
+          <div class="border border-gray-200 rounded-lg">
+              <button class="flex justify-between items-center w-full px-4 py-2 text-left focus:outline-none faq-toggle">
+                  <span class="text-base font-medium text-gray-800">How can I join Women in Health Africa?</span>
+                  <span class="material-icons transform transition-transform duration-200 text-sm">expand_more</span>
+              </button>
+              <div class="hidden px-4 pb-2 faq-content">
+                  <p class="text-gray-600 text-sm">You can join our community by registering through the "Get Involved" page. We welcome healthcare professionals, students, and advocates who share our vision.</p>
+              </div>
+          </div>
+
+          <!-- FAQ Item 2 -->
+          <div class="border border-gray-200 rounded-lg">
+              <button class="flex justify-between items-center w-full px-4 py-2 text-left focus:outline-none faq-toggle">
+                  <span class="text-base font-medium text-gray-800">What programs do you offer?</span>
+                  <span class="material-icons transform transition-transform duration-200 text-sm">expand_more</span>
+              </button>
+              <div class="hidden px-4 pb-2 faq-content">
+                  <p class="text-gray-600 text-sm">We offer mentorship programs, workshops, conferences, and networking events for women in healthcare, focusing on leadership development and career advancement.</p>
+              </div>
+          </div>
+
+          <!-- FAQ Item 3 -->
+          <div class="border border-gray-200 rounded-lg">
+              <button class="flex justify-between items-center w-full px-4 py-2 text-left focus:outline-none faq-toggle">
+                  <span class="text-base font-medium text-gray-800">Can I volunteer or contribute?</span>
+                  <span class="material-icons transform transition-transform duration-200 text-sm">expand_more</span>
+              </button>
+              <div class="hidden px-4 pb-2 faq-content">
+                  <p class="text-gray-600 text-sm">Yes! We have various volunteer opportunities including mentoring, organizing events, and contributing to initiatives. Visit our "Get Involved" page to learn more.</p>
+              </div>
+          </div>
+
+          <!-- FAQ Item 4 -->
+          <div class="border border-gray-200 rounded-lg">
+              <button class="flex justify-between items-center w-full px-4 py-2 text-left focus:outline-none faq-toggle">
+                  <span class="text-base font-medium text-gray-800">How does mentorship work?</span>
+                  <span class="material-icons transform transition-transform duration-200 text-sm">expand_more</span>
+              </button>
+              <div class="hidden px-4 pb-2 faq-content">
+                  <p class="text-gray-600 text-sm">Our mentorship program pairs experienced professionals with emerging leaders for 6-12 months of structured guidance and support.</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Contact Form -->
+<div class="bg-white py-16">
+  <div class="container mx-auto px-4">
+      <div class="bg-white rounded-lg shadow-lg p-8 max-w-3xl mx-auto">
+          <h2 class="text-3xl font-bold mb-6 text-center">Contact Us</h2>
+          <form id="contact-form" class="space-y-6" onsubmit="return validateContactForm(event)">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <input type="text" placeholder="First Name" class="input w-full" required>
+                  <input type="text" placeholder="Last Name" class="input w-full" required>
+              </div>
+              <input type="email" placeholder="Email Address" class="input w-full" required>
+              <textarea placeholder="Your Message" class="input w-full h-32 resize-none" required></textarea>
+              <div class="text-center mt-8">
+                  <button type="submit" class="rounded-md bg-amber-700 hover:bg-amber-800 text-white px-10 py-3 text-lg font-medium shadow-md transform transition-all duration-200 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-amber-600 focus:ring-opacity-50">
+                      Send Message
+                  </button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
+
+<!-- New Footer -->
+<footer class="bg-[var(--footer-bg)] text-[var(--footer-text)] py-12">
+    <div class="container mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            <!-- About Section -->
+            <div class="flex flex-col items-start">
+                <h3 class="text-lg font-semibold mb-4">About Us</h3>
+                <p class="text-sm mb-6 max-w-md">Empowering women in health across Africa through education, connection, and support.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-[var(--footer-text)] hover:text-[#1877f2] transition-colors duration-200" target="_blank">
+                        <i class="fab fa-facebook text-xl"></i>
+                    </a>
+                    <a href="http://www.youtube.com/@Dr_Kiki" class="text-[var(--footer-text)] hover:text-[#ff0000] transition-colors duration-200" target="_blank">
+                        <i class="fab fa-youtube text-xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/hermosa_mimosa_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="text-[var(--footer-text)] hover:text-[#e1306c] transition-colors duration-200" target="_blank">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-[var(--footer-text)] hover:text-[#000000] group transition-colors duration-200" target="_blank">
+                        <i class="fab fa-tiktok text-xl group-hover:text-[#00f2ea]"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Newsletter Section -->
+            <div class="flex flex-col items-start">
+                <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
+                <div class="w-full max-w-md">
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <input type="email" id="footer-newsletter-email" placeholder="your message" class="flex-1 px-4 py-2 rounded-md border border-[var(--accent-color)] bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)]" required>
+                        <button type="button" onclick="validateFooterNewsletterForm(event)" class="px-6 py-2 bg-[var(--primary-color)] text-white rounded-md hover:bg-[var(--text-secondary)] transition-colors duration-200">
+                            Subscribe
+                        </button>
+                    </div>
+                    <p class="text-sm mt-3">Stay updated with our latest news and updates</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright and Legal Links -->
+        <div class="border-t border-[var(--accent-color)] mt-12 pt-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-center text-sm mb-4 md:mb-0">&copy; 2026 Women in Health Africa. All rights reserved.</p>
+                <div class="flex flex-wrap justify-center gap-4 md:gap-6">
+                    <a href="privacy-policy.html" class="text-sm hover:underline">Privacy Policy</a>
+                    <a href="terms-of-service.html" class="text-sm hover:underline">Terms of Service</a>
+                    <a href="cookie-policy.html" class="text-sm hover:underline">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Cookie Consent Script -->
+<script src="js/cookie-consent.js"></script>
+
+<script>
+  // Function to hide loading screen
+  function hideLoadingScreen() {
+      const loadingScreen = document.getElementById('loading-screen');
+      const mainContent = document.querySelector('.main-content');
+      
+      if (loadingScreen) {
+          loadingScreen.classList.remove('loading-fade-in');
+          loadingScreen.classList.add('loading-fade-out');
+          
+          // Show main content with fade-in
+          setTimeout(() => {
+              if (mainContent) {
+                  mainContent.classList.add('loaded');
+              }
+              
+              // Remove loading screen completely
+              setTimeout(() => {
+                  if (loadingScreen) {
+                      loadingScreen.style.display = 'none';
+                  }
+              }, 500);
+          }, 200);
+      }
+  }
+  
+  // Loading Animation Control
+  document.addEventListener('DOMContentLoaded', function() {
+      const loadingScreen = document.getElementById('loading-screen');
+      
+      // Add initial animation classes
+      if (loadingScreen) {
+          loadingScreen.classList.add('loading-fade-in');
+      }
+      
+      // Hide loading screen when page is fully loaded
+      window.addEventListener('load', hideLoadingScreen);
+      
+      // Fallback: hide loading screen after 2 seconds if load event doesn't fire
+      setTimeout(hideLoadingScreen, 2000);
+  });
+
+  // Search data specific to index.html page
+  const searchData = [
+    {
+      title: "Home Page Content",
+      description: "Welcome to Women in Health Africa - Empowering women in healthcare across Africa",
+      url: "#",
+      category: "Home",
+      content: "Welcome to our homepage. Empowering Women in Healthcare Across Africa. Join our community of healthcare professionals dedicated to advancing women's roles in the medical field throughout Africa."
+    },
+    {
+      title: "Get Involved",
+      description: "Learn how to join our community and contribute",
+      url: "get-involved.html",
+      category: "Get Involved",
+      content: "You can join our community by registering through the Get Involved page. We welcome healthcare professionals, students, and advocates who share our vision."
+    },
+    {
+      title: "Hermosa Mimosa Initiative",
+      description: "Our flagship program mentioned on the home page",
+      url: "HermosaMimosa.html",
+      category: "Initiative",
+      content: "Hermosa Mimosa is our initiative mentioned on the home page. Click Our Initiatives button to learn more about this program."
+    },
+    {
+      title: "Welcome Message",
+      description: "Welcome to the Squad section content",
+      url: "#welcome",
+      category: "Home",
+      content: "Welcome to the Squad! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      title: "Frequently Asked Questions",
+      description: "FAQ section on the home page",
+      url: "#faq",
+      category: "Home",
+      content: "FAQ: How can I join Women in Health Africa? What programs do you offer? Can I volunteer or contribute? How does mentorship work?"
+    },
+    {
+      title: "Contact Us",
+      description: "Contact form on the home page",
+      url: "#contact",
+      category: "Home",
+      content: "Contact Us form for sending messages to Women in Health Africa. Fill out the form with your first name, last name, email address, and message."
+    },
+    {
+      title: "Empowering Women",
+      description: "Main heading from hero section",
+      url: "#",
+      category: "Home",
+      content: "Empowering Women in Healthcare Across Africa - Join our community of healthcare professionals"
+    },
+    {
+      title: "Healthcare Professionals",
+      description: "Community mentioned on home page",
+      url: "#",
+      category: "Home",
+      content: "Community of healthcare professionals dedicated to advancing women's roles in the medical field throughout Africa."
+    },
+    {
+      title: "Mentorship Program",
+      description: "Mentioned in FAQ section",
+      url: "#faq",
+      category: "FAQ",
+      content: "Our mentorship program pairs experienced professionals with emerging leaders for 6-12 months of structured guidance and support."
+    },
+    {
+      title: "Volunteer Opportunities",
+      description: "Mentioned in FAQ section",
+      url: "#faq",
+      category: "FAQ",
+      content: "Various volunteer opportunities including mentoring, organizing events, and contributing to initiatives."
+    }
+  ];
+
+  // Search functionality - only searches current page content
+  function performSearch(query, searchResultsContainer, isDesktop = false) {
+    if (!query.trim()) {
+      if (isDesktop) {
+        showDesktopSearchResults('<div class="no-results">Enter a search term to find content on this page</div>', query);
+      } else {
+        searchResultsContainer.innerHTML = '<div class="no-results">Enter a search term to find content on this page</div>';
+        searchResultsContainer.classList.remove('hidden');
+      }
+      return;
+    }
+
+    const searchTerms = query.toLowerCase().split(' ').filter(term => term.length > 0);
+    
+    // Get current page content from the DOM (not from global data)
+    const currentPageContent = getCurrentPageContent();
+    
+    // Filter results based on search terms within current page content
+    const results = currentPageContent.filter(item => {
+      const searchableText = (item.title + ' ' + item.description + ' ' + item.content + ' ' + item.category).toLowerCase();
+      return searchTerms.some(term => searchableText.includes(term));
+    });
+
+    // Display results
+    if (results.length === 0) {
+      if (isDesktop) {
+        showDesktopSearchResults('<div class="no-results">No results found for "' + query + '" on this page</div>', query);
+      } else {
+        searchResultsContainer.innerHTML = '<div class="no-results">No results found for "' + query + '" on this page</div>';
+        searchResultsContainer.classList.remove('hidden');
+      }
+    } else {
+      let resultsHTML = '';
+      results.forEach(item => {
+        resultsHTML += `
+          <div class="search-result-item" onclick="${item.url.startsWith('#') ? 'scrollToSection(\'' + item.url.substring(1) + '\'); hideDesktopSearchResults();' : 'window.location.href=\'' + item.url + '\'; hideDesktopSearchResults();'}">
+            <div class="search-result-title">${item.title}</div>
+            <div class="search-result-description">${item.description}</div>
+            <div class="search-result-category">${item.category} - Current Page</div>
+          </div>
+        `;
+      });
+      
+      if (isDesktop) {
+        showDesktopSearchResults(resultsHTML, query);
+      } else {
+        searchResultsContainer.innerHTML = resultsHTML;
+        searchResultsContainer.classList.remove('hidden');
+      }
+    }
+  }
+
+  // Function to get content from the current page (index.html)
+  function getCurrentPageContent() {
+    // Get text content from the current page
+    const pageContent = document.body.innerText.toLowerCase();
+    const pageTitle = document.title;
+    
+    // Extract sections from the current page
+    const sections = [];
+    
+    // Hero section
+    const heroHeading = document.querySelector('.relative.z-10 .text-white.font-bold')?.innerText || '';
+    const heroDescription = document.querySelector('.relative.z-10 .text-white\\/80')?.innerText || '';
+    
+    // Welcome section
+    const welcomeHeading = document.querySelector('.order-1 h2')?.innerText || '';
+    const welcomeContent = document.querySelector('.order-1 p')?.innerText || '';
+    
+    // FAQ items
+    const faqItems = document.querySelectorAll('.faq-toggle');
+    let faqContent = '';
+    faqItems.forEach(item => {
+      faqContent += item.querySelector('span').innerText + ' ';
+    });
+    
+    // FAQ answers
+    const faqAnswers = document.querySelectorAll('.faq-content p');
+    faqAnswers.forEach(answer => {
+      faqContent += answer.innerText + ' ';
+    });
+    
+    // Contact section
+    const contactHeading = document.querySelector('.bg-white.rounded-lg h2')?.innerText || '';
+    
+    // Return page-specific content for search
+    return [
+      {
+        title: pageTitle,
+        description: "Current page: Home",
+        url: "#",
+        category: "Home",
+        content: pageContent.substring(0, 500) // First 500 chars of page content
+      },
+      {
+        title: "Hero Section: " + (heroHeading.substring(0, 50) || "Empowering Women in Healthcare"),
+        description: heroDescription.substring(0, 100) || "Join our community of healthcare professionals",
+        url: "#",
+        category: "Home",
+        content: heroHeading + " " + heroDescription
+      },
+      {
+        title: welcomeHeading || "Welcome to the Squad!",
+        description: "Welcome section on home page",
+        url: "#welcome",
+        category: "Home",
+        content: welcomeContent
+      },
+      {
+        title: "Frequently Asked Questions",
+        description: "FAQ section with common questions",
+        url: "#faq",
+        category: "FAQ",
+        content: faqContent
+      },
+      {
+        title: contactHeading || "Contact Us",
+        description: "Contact form for inquiries",
+        url: "#contact",
+        category: "Contact",
+        content: "Contact form for sending messages to Women in Health Africa"
+      },
+      {
+        title: "Get Involved Button",
+        description: "Call to action button on home page",
+        url: "get-involved.html",
+        category: "Navigation",
+        content: "Get Involved - Join our community and contribute"
+      },
+      {
+        title: "Our Initiatives Button",
+        description: "Hermosa Mimosa initiative",
+        url: "HermosaMimosa.html",
+        category: "Navigation",
+        content: "Our Initiatives - Learn about Hermosa Mimosa program"
+      }
+    ];
+  }
+
+  // Function to scroll to a section on the current page
+  function scrollToSection(sectionId) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Try to find section by heading text
+      const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+      for (let heading of headings) {
+        if (heading.innerText.toLowerCase().includes(sectionId.toLowerCase())) {
+          heading.scrollIntoView({ behavior: 'smooth' });
+          break;
+        }
+      }
+    }
+  }
+
+  // Desktop search functions
+  function showDesktopSearchResults(content, query) {
+    const overlay = document.getElementById('desktop-search-overlay');
+    const resultsContainer = document.getElementById('desktop-search-results');
+    const resultsContent = document.getElementById('desktop-search-results-content');
+    const searchResultsInput = document.getElementById('search-results-input');
+    
+    if (overlay && resultsContainer && resultsContent && searchResultsInput) {
+      resultsContent.innerHTML = content;
+      searchResultsInput.value = query;
+      overlay.classList.remove('hidden');
+      resultsContainer.classList.remove('hidden');
+      searchResultsInput.focus();
+    }
+  }
+
+  function hideDesktopSearchResults() {
+    const overlay = document.getElementById('desktop-search-overlay');
+    const resultsContainer = document.getElementById('desktop-search-results');
+    const desktopSearch = document.getElementById('desktop-search');
+    
+    if (overlay && resultsContainer) {
+      overlay.classList.add('hidden');
+      resultsContainer.classList.add('hidden');
+    }
+    
+    if (desktopSearch) {
+      desktopSearch.value = '';
+    }
+  }
+
+  // Search event handlers
+  document.addEventListener('DOMContentLoaded', function() {
+    // Desktop search
+    const desktopSearch = document.getElementById('desktop-search');
+    
+    if (desktopSearch) {
+      let searchTimeout;
+      
+      desktopSearch.addEventListener('input', function() {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+          performSearch(this.value, null, true);
+        }, 300);
+      });
+      
+      desktopSearch.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          clearTimeout(searchTimeout);
+          performSearch(this.value, null, true);
+        }
+      });
+    }
+    
+    // Search results input
+    const searchResultsInput = document.getElementById('search-results-input');
+    if (searchResultsInput) {
+      let searchResultsTimeout;
+      
+      searchResultsInput.addEventListener('input', function() {
+        clearTimeout(searchResultsTimeout);
+        searchResultsTimeout = setTimeout(() => {
+          performSearch(this.value, null, true);
+        }, 300);
+      });
+      
+      searchResultsInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          clearTimeout(searchResultsTimeout);
+          performSearch(this.value, null, true);
+        }
+      });
+    }
+    
+    // Close desktop search results
+    const closeDesktopSearch = document.getElementById('close-desktop-search');
+    const desktopSearchOverlay = document.getElementById('desktop-search-overlay');
+    
+    if (closeDesktopSearch) {
+      closeDesktopSearch.addEventListener('click', hideDesktopSearchResults);
+    }
+    
+    if (desktopSearchOverlay) {
+      desktopSearchOverlay.addEventListener('click', hideDesktopSearchResults);
+    }
+    
+    // Mobile menu search
+    const mobileMenuSearch = document.getElementById('mobile-menu-search');
+    const mobileSearchResults = document.getElementById('mobile-search-results');
+    
+    if (mobileMenuSearch && mobileSearchResults) {
+      mobileMenuSearch.addEventListener('input', function() {
+        performSearch(this.value, mobileSearchResults);
+      });
+      
+      mobileMenuSearch.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter' && this.value.trim()) {
+          const firstResult = mobileSearchResults.querySelector('.search-result-item');
+          if (firstResult) {
+            firstResult.click();
+          }
+        }
+      });
+    }
+  });
+
+  // Existing mobile menu functionality
+  document.addEventListener('DOMContentLoaded', function () {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    function openMenu() {
+      mobileMenuOverlay.classList.remove('hidden');
+      mobileMenu.classList.add('active');
+    }
+
+    function closeMenu() {
+      mobileMenuOverlay.classList.add('hidden');
+      mobileMenu.classList.remove('active');
+    }
+
+    mobileMenuButton.addEventListener('click', openMenu);
+    closeMobileMenuButton.addEventListener('click', closeMenu);
+    mobileMenuOverlay.addEventListener('click', function(event) {
+        if (event.target === mobileMenuOverlay) {
+            closeMenu();
+        }
+    });
+
+    // Submenu toggles
+    const submenuToggles = document.querySelectorAll('.mobile-submenu-toggle');
+    submenuToggles.forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const submenu = toggle.nextElementSibling;
+        const icon = toggle.querySelector('.material-icons');
+        
+        submenu.classList.toggle('hidden');
+        if (submenu.classList.contains('hidden')) {
+            icon.style.transform = 'rotate(0deg)';
+        } else {
+            icon.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+  });
+
+  // FAQ Toggle Script
+  document.querySelectorAll('.faq-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+          const content = button.nextElementSibling;
+          const icon = button.querySelector('.material-icons');
+          
+          // Toggle content visibility
+          content.classList.toggle('hidden');
+          
+          // Rotate icon
+          if (content.classList.contains('hidden')) {
+              icon.style.transform = 'rotate(0deg)';
+          } else {
+              icon.style.transform = 'rotate(180deg)';
+          }
+          
+          // Close other FAQs
+          document.querySelectorAll('.faq-content').forEach(otherContent => {
+              if (otherContent !== content && !otherContent.classList.contains('hidden')) {
+                  otherContent.classList.add('hidden');
+                  otherContent.previousElementSibling.querySelector('.material-icons').style.transform = 'rotate(0deg)';
+              }
+          });
+      });
+  });
+</script>
+
+<!-- JavaScript for Mobile Menu -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function openMenu() {
+            mobileMenuOverlay.classList.remove('hidden');
+            setTimeout(() => {
+                mobileMenu.classList.remove('translate-x-full');
+            }, 10);
+        }
+
+        function closeMenu() {
+            mobileMenu.classList.add('translate-x-full');
+            setTimeout(() => {
+                mobileMenuOverlay.classList.add('hidden');
+            }, 300);
+        }
+
+        mobileMenuButton.addEventListener('click', openMenu);
+        closeMobileMenuButton.addEventListener('click', closeMenu);
+        mobileMenuOverlay.addEventListener('click', function(event) {
+            if (event.target === mobileMenuOverlay) {
+                closeMenu();
+            }
+        });
+
+        // Mobile submenu toggles
+        const submenuToggles = document.querySelectorAll('.mobile-submenu-toggle');
+        submenuToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const submenu = toggle.nextElementSibling;
+                const icon = toggle.querySelector('.material-icons');
+                
+                submenu.classList.toggle('hidden');
+                if (submenu.classList.contains('hidden')) {
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                }
+            });
+
+            // Mobile submenu toggles
+            const submenuToggles = document.querySelectorAll('.mobile-submenu-toggle');
+            submenuToggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const submenu = toggle.nextElementSibling;
+                    const icon = toggle.querySelector('.material-icons');
+                    
+                    submenu.classList.toggle('hidden');
+                    if (submenu.classList.contains('hidden')) {
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+        });
+    });
+</script>
+</div>
+
+    <!-- Cookie Consent Script -->
+    <script src="js/cookie-consent.js"></script>
+    
+    <!-- Form Validation Scripts -->
+    <script>
+        function validateContactForm(event) {
+            event.preventDefault();
+            
+            const form = document.getElementById('contact-form');
+            const firstName = form.querySelector('input[type="text"]:nth-of-type(1)').value.trim();
+            const lastName = form.querySelector('input[type="text"]:nth-of-type(2)').value.trim();
+            const email = form.querySelector('input[type="email"]').value.trim();
+            const message = form.querySelector('textarea').value.trim();
+            
+            // Clear previous error messages
+            clearErrorMessages(form);
+            
+            let isValid = true;
+            
+            // Validate first name
+            if (firstName === '') {
+                showFieldError(form.querySelector('input[type="text"]:nth-of-type(1)'), 'First name is required');
+                isValid = false;
+            }
+            
+            // Validate last name
+            if (lastName === '') {
+                showFieldError(form.querySelector('input[type="text"]:nth-of-type(2)'), 'Last name is required');
+                isValid = false;
+            }
+            
+            // Validate email
+            if (email === '') {
+                showFieldError(form.querySelector('input[type="email"]'), 'Email is required');
+                isValid = false;
+            } else if (!isValidEmail(email)) {
+                showFieldError(form.querySelector('input[type="email"]'), 'Please enter a valid email address');
+                isValid = false;
+            }
+            
+            // Validate message
+            if (message === '') {
+                showFieldError(form.querySelector('textarea'), 'Message is required');
+                isValid = false;
+            } else if (message.length < 10) {
+                showFieldError(form.querySelector('textarea'), 'Message must be at least 10 characters long');
+                isValid = false;
+            }
+            
+            // If validation passes, show confirmation
+            if (isValid) {
+                // Trigger the universal confirmation
+                if (window.universalConfirmation) {
+                    window.universalConfirmation.showConfirmationPopup(
+                        'Message Sent!',
+                        'Thank you for your message. we will get back to you as soon as possible.',
+                        'send',
+                        'blue'
+                    );
+                }
+                
+                // Reset form after showing confirmation
+                setTimeout(() => {
+                    form.reset();
+                }, 1000);
+            }
+            
+            return false;
+        }
+        
+        function validateFooterNewsletterForm(event) {
+            // Prevent default behavior and stop propagation
+            event.preventDefault();
+            event.stopPropagation();
+            
+            const emailInput = document.getElementById('footer-newsletter-email');
+            const email = emailInput.value.trim();
+            
+            // Clear previous error messages
+            clearFieldError(emailInput);
+            
+            let isValid = true;
+            
+            // Validate email
+            if (email === '') {
+                showFieldError(emailInput, 'Email is required');
+                isValid = false;
+            } else if (!isValidEmail(email)) {
+                showFieldError(emailInput, 'Please enter a valid email address');
+                isValid = false;
+            }
+            
+            // If validation passes, show confirmation
+            if (isValid) {
+                // Trigger the universal confirmation
+                if (window.universalConfirmation) {
+                    window.universalConfirmation.showConfirmationPopup(
+                        'Subscription Successful!',
+                        'Thank you for subscribing to our newsletter. You\'ll receive our latest updates in your inbox.',
+                        'email',
+                        'blue'
+                    );
+                }
+                
+                // Reset form after showing confirmation
+                setTimeout(() => {
+                    emailInput.value = '';
+                }, 1000);
+            }
+            
+            return false;
+        }
+        
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+        
+        function showFieldError(field, message) {
+            clearFieldError(field);
+            
+            // Add red border to indicate error
+            field.classList.add('border-red-500');
+            
+            // Set error message as placeholder to show inside the input
+            field.placeholder = message;
+            field.classList.add('text-red-500');
+            
+            // Clear placeholder on focus
+            field.addEventListener('focus', function() {
+                if (field.placeholder === message) {
+                    field.placeholder = 'Enter your email';
+                    field.classList.remove('text-red-500');
+                }
+            }, { once: true });
+        }
+        
+        function clearFieldError(field) {
+            field.classList.remove('border-red-500');
+            field.classList.remove('text-red-500');
+            
+            // Reset placeholder to default
+            if (field.placeholder === 'Email is required' || field.placeholder === 'Please enter a valid email address') {
+                field.placeholder = 'Enter your email';
+            }
+            
+            // Remove any external error divs (for backwards compatibility)
+            const errorDiv = field.parentNode.querySelector('.field-error');
+            if (errorDiv) {
+                errorDiv.remove();
+            }
+        }
+        
+        function clearErrorMessages(form) {
+            const inputs = form.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                clearFieldError(input);
+            });
+        }
+    </script>
+    
+    <!-- Universal Confirmation Script -->
+    <script src="js/universal-confirmations.js"></script>
+    
+    
+    <script>
+        // Mobile submenu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all mobile submenu toggle buttons
+            const submenuToggles = document.querySelectorAll('.mobile-submenu-toggle');
+            
+            // Add click event listeners to each toggle button
+            submenuToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    // Toggle the 'active' class on the parent menu item
+                    const menuItem = this.closest('.mobile-menu-item');
+                    menuItem.classList.toggle('active');
+                    
+                    // Toggle the submenu visibility
+                    const submenu = this.nextElementSibling;
+                    submenu.classList.toggle('hidden');
+                    
+                    // Rotate the arrow icon
+                    const arrow = this.querySelector('.material-icons');
+                    if (arrow) {
+                        arrow.classList.toggle('rotate-180');
+                    }
+                });
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileMenuLinks = document.querySelectorAll('#mobile-menu a:not([data-donate])');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    closeMenu();
+                });
+            });
+        });
+    </script>
+
+    <!-- Donation Popup -->
+    <div id="donation-popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-6 max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-gray-900">Support Our Cause</h3>
+                <button id="close-donation-popup" class="text-gray-500 hover:text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            <p class="text-gray-600 mb-6">Your donation helps us continue our mission. Thank you for your support!</p>
+            <div class="space-y-4">
+                <button class="w-full bg-yellow-300 hover:bg-yellow-400 text-gray-800 font-bold py-3 px-4 rounded transition duration-200">
+                    $25
+                </button>
+                <button class="w-full bg-yellow-300 hover:bg-yellow-400 text-gray-800 font-bold py-3 px-4 rounded transition duration-200">
+                    $50
+                </button>
+                <button class="w-full bg-yellow-300 hover:bg-yellow-400 text-gray-800 font-bold py-3 px-4 rounded transition duration-200">
+                    $100
+                </button>
+                <div class="relative mt-2">
+                    <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">$</span>
+                    <input type="number" placeholder="Other amount" class="w-full pl-8 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                </div>
+                <button class="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-4 rounded transition duration-200 mt-4">
+                    Donate Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Donation popup functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show popup
+            document.querySelectorAll('[data-donate]').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.getElementById('donation-popup').classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            // Close popup
+            document.getElementById('close-donation-popup').addEventListener('click', function() {
+                document.getElementById('donation-popup').classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+
+            // Close when clicking outside
+            document.getElementById('donation-popup').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+    </script>
+    
+    
+    <script src="js/mobile-menu-fix.js"></script>
+</body>
+</html>

@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Women in Health Africa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+
+        /* Mobile menu animations */
+        .mobile-submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .mobile-menu-item.active .mobile-submenu {
+            max-height: 1000px; /* Adjust based on your content */
+            transition: max-height 0.5s ease-in;
+        }
+        
+        .rotate-180 {
+            transform: rotate(180deg);
+        }
+        
+        .transition-transform {
+            transition: transform 0.2s ease-in-out;
+        }
+
+        :root {
+            --primary-color: #b76614;
+            --background-color: #f8f4f0;
+            --text-primary: #3e2723;
+            --text-secondary: #795548;
+            --accent-color: #d7ccc8;
+            --footer-bg: #C4B5A5;
+            --footer-text: #3e2723;
+            --nav-bg: #EAE0D5;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            padding-top: 60px; /* Adjusted for 60px nav */
+        }
+        .gradient-header {
+            background: linear-gradient(135deg, var(--primary-color), #e6b88a);
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            z-index: 40;
+            display: none;
+        }
+        
+        .back-to-top:hover {
+            background-color: #9a5514;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .back-to-top:active {
+            transform: translateY(0);
+        }
+
+        /* Loading Screen Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+        @keyframes slideUp {
+            from { 
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to { 
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .loading-fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .loading-fade-out {
+            animation: fadeOut 0.5s ease-in-out forwards;
+        }
+
+        .loading-slide-up {
+            animation: slideUp 0.6s ease-out;
+        }
+
+        /* Hide main content initially */
+        .main-content {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .main-content.loaded {
+            opacity: 1;
+        }
+
+        /* Enhanced Loading Animation */
+        #loading-screen {
+            background: linear-gradient(135deg, #f8f4f0 0%, #e6b88a 100%);
+        }
+
+        .loading-logo {
+            animation: logoPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes logoPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .loading-text {
+            animation: textSlide 1s ease-out;
+        }
+
+        @keyframes textSlide {
+            from { 
+                transform: translateY(10px);
+                opacity: 0;
+            }
+            to { 
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .loading-dots {
+            animation: dotsBounce 1.5s ease-in-out infinite;
+        }
+
+        @keyframes dotsBounce {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body class="bg-white">
+<!-- Loading Animation -->
+<div id="loading-screen" class="fixed inset-0 z-[9999] flex items-center justify-center">
+    <div class="text-center">
+        <div class="relative w-24 h-24 mx-auto mb-4 loading-logo">
+            <!-- Main rotating circle -->
+            <div class="absolute inset-0 border-4 border-[#b76614] border-t-transparent rounded-full animate-spin"></div>
+            <!-- Center logo placeholder -->
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
+                    <span class="text-[#b76614] font-bold text-sm">WIHA</span>
+                </div>
+            </div>
+        </div>
+        <div class="text-[#3e2723] font-medium mb-2 loading-text">Women in Health Africa</div>
+        <!-- Progress dots -->
+        <div class="flex justify-center space-x-2 mt-4 loading-dots">
+            <div class="w-2 h-2 bg-[#b76614] rounded-full animate-pulse"></div>
+            <div class="w-2 h-2 bg-[#b76614] rounded-full animate-pulse" style="animation-delay: 0.2s;"></div>
+            <div class="w-2 h-2 bg-[#b76614] rounded-full animate-pulse" style="animation-delay: 0.4s;"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+<!-- Fixed Top Navigation - 60px height -->
+<nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 h-[60px] border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-6 h-full">
+        <div class="flex items-center h-full">
+            <!-- Logo -->
+            <div class="flex-shrink-0">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <div class="w-10 h-10 border-2 border-gray-300 rounded-full flex items-center justify-center hover:border-gray-400 transition-colors">
+                        <span class="text-gray-400 text-sm">Logo</span>
+                    </div>
+                    <span class="hidden sm:block font-semibold text-base text-green-800 tracking-tight">Women In Health Africa</span>
+                </a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden lg:flex items-center space-x-8 ml-auto h-full">
+                <!-- Home -->
+                <a href="index.html" class="text-gray-700 text-sm font-medium hover:text-[#b76614] transition-colors relative group h-full flex items-center px-1">
+                    Home
+                    <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-[#b76614] group-hover:w-10 transition-all duration-300 rounded-full"></span>
+                </a>
+                
+                <!-- About Dropdown -->
+                <div class="relative group h-full flex items-center">
+                    <button class="text-gray-700 text-sm font-medium hover:text-[#b76614] transition-colors flex items-center px-1">
+                        <span>About</span>
+                        <span class="material-icons text-sm ml-1">expand_more</span>
+                    </button>
+                    <div class="absolute top-full left-0 bg-white border border-gray-200 rounded-lg shadow-xl py-2 min-w-[220px] opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-10">
+                        <a href="mission-vision-statement.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#b76614] hover:bg-gray-50 transition-colors border-b border-gray-100">Mission, Vision & Statement</a>
+                        <a href="meet-the-founder.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#b76614] hover:bg-gray-50 transition-colors border-b border-gray-100">Meet the Founder</a>
+                        <a href="meet-the-team.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#b76614] hover:bg-gray-50 transition-colors border-b border-gray-100">Meet the Team</a>
+                        <a href="library.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#b76614] hover:bg-gray-50 transition-colors">Library</a>
+                    </div>
+                </div>
+
+                <!-- Features -->
+                <a href="features.html" class="text-gray-700 text-sm font-medium hover:text-[#b76614] transition-colors relative group h-full flex items-center px-1">
+                    Features
+                    <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-[#b76614] group-hover:w-10 transition-all duration-300 rounded-full"></span>
+                </a>
+                
+                <!-- Initiatives Dropdown -->
+                <div class="relative group h-full flex items-center">
+                    <button class="text-gray-700 text-sm font-medium hover:text-[#b76614] transition-colors flex items-center px-1">
+                        <span>Initiative</span>
+                        <span class="material-icons text-sm ml-1">expand_more</span>
+                    </button>
+                    <div class="absolute top-full left-0 bg-white border border-gray-200 rounded-lg shadow-xl py-2 min-w-[200px] opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-10">
+                        <a href="HermosaMimosa.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#b76614] hover:bg-gray-50 transition-colors">Hermosa Mimosa</a>
+                    </div>
+                </div>
+
+                <!-- Get Involved -->
+                <a href="get-involved.html" class="text-gray-700 text-sm font-medium hover:text-[#b76614] transition-colors relative group h-full flex items-center px-1">
+                    Get Involved
+                    <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-[#b76614] group-hover:w-10 transition-all duration-300 rounded-full"></span>
+                </a>
+                
+                <!-- Donate Button -->
+                <a href="#" data-donate class="text-gray-700 text-sm font-medium hover:text-[#b76614] transition-colors relative group h-full flex items-center px-2 py-1 bg-yellow-300 rounded hover:bg-yellow-400">
+                    <svg class="w-4 h-4 mr-1 inline text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                    <span class="text-gray-800">Donate</span>
+                </a>
+                
+                <!-- Search Bar -->
+                <div class="relative ml-4">
+                    <input type="text" 
+                           id="desktop-search" 
+                           placeholder="Search..." 
+                           class="w-48 px-4 py-2.5 text-sm text-gray-700 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#b76614] focus:border-transparent transition-all duration-200 shadow-sm">
+                    <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Icons - Search icon removed -->
+            <div class="lg:hidden flex items-center ml-auto">
+                <!-- Mobile Menu Button only (no search icon) -->
+                <button class="text-gray-700 hover:text-[#b76614] p-2 rounded-full transition-colors" id="mobile-menu-button" aria-label="Open menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-50 hidden transition-opacity duration-300" id="mobile-menu-overlay">
+    <div class="fixed inset-y-0 right-0 max-w-xs w-full bg-white shadow-xl transform translate-x-full transition-transform duration-300" id="mobile-menu">
+        <div class="flex flex-col h-full">
+            <!-- Mobile Menu Header -->
+            <div class="flex items-center justify-between px-6 py-4 border-b border-gray-200 bg-gray-50">
+                <h2 class="text-lg font-semibold text-gray-900">Menu</h2>
+                <button class="text-gray-500 hover:text-gray-700 p-2 rounded-full" id="close-mobile-menu" aria-label="Close menu">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+
+            <!-- Mobile Search Bar -->
+            <div class="px-6 py-4 border-b border-gray-200">
+                <div class="relative">
+                    <input type="text" 
+                           placeholder="Search..." 
+                           class="w-full px-4 py-2.5 text-sm text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#b76614] focus:border-transparent transition-all duration-200">
+                    <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Links -->
+            <nav class="flex-1 overflow-y-auto px-6 py-4">
+                <div class="space-y-1">
+                    <!-- Home -->
+                    <a href="index.html" class="block py-3 px-3 text-base font-medium text-gray-700 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                        Home
+                    </a>
+
+                    <!-- About Section -->
+                    <div class="mobile-menu-item">
+                        <button class="flex items-center justify-between w-full py-3 px-3 text-base font-medium text-gray-700 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200 mobile-submenu-toggle">
+                            <span class="font-semibold">About</span>
+                            <span class="material-icons transform transition-transform duration-200">expand_more</span>
+                        </button>
+                        <div class="mobile-submenu hidden pl-4 space-y-1 mt-1">
+                            <a href="mission-vision-statement.html" class="block py-2.5 px-3 text-sm text-gray-600 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                                Mission, Vision & Statement
+                            </a>
+                            <a href="meet-the-founder.html" class="block py-2.5 px-3 text-sm text-gray-600 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                                Meet the Founder
+                            </a>
+                            <a href="meet-the-team.html" class="block py-2.5 px-3 text-sm text-gray-600 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                                Meet the Team
+                            </a>
+                            <a href="library.html" class="block py-2.5 px-3 text-sm text-gray-600 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                                Library
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Features -->
+                    <a href="features.html" class="block py-3 px-3 text-base font-medium text-gray-700 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                        Features
+                    </a>
+
+                    <!-- Initiatives Section -->
+                    <div class="mobile-menu-item">
+                        <button class="flex items-center justify-between w-full py-3 px-3 text-base font-medium text-gray-700 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200 mobile-submenu-toggle">
+                            <span class="font-semibold">Initiative</span>
+                            <span class="material-icons transform transition-transform duration-200">expand_more</span>
+                        </button>
+                        <div class="mobile-submenu hidden pl-4 space-y-1 mt-1">
+                            <a href="HermosaMimosa.html" class="block py-2.5 px-3 text-sm text-gray-600 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                                Hermosa Mimosa
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Get Involved -->
+                    <a href="get-involved.html" class="block py-3 px-3 text-base font-medium text-gray-700 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                        Get Involved
+                    </a>
+                    
+                    <!-- Donate -->
+                    <a href="#" data-donate class="block px-3 py-2 text-base font-medium bg-yellow-300 rounded hover:bg-yellow-400">
+                        <svg class="w-4 h-4 mr-1 inline text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                        <span class="text-black">Donate</span>
+                    </a>
+                </div>
+            </nav>
+
+            <!-- Mobile Footer -->
+            <div class="px-6 py-4 border-t border-gray-200">
+                <p class="text-xs text-gray-500 text-center">Women in Health Africa © 2026</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Header -->
+    <header class="gradient-header py-16 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Privacy Policy</h1>
+            <p class="text-xl max-w-3xl mx-auto">Last Updated: November 27, 2026</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-16 max-w-4xl">
+        <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="prose max-w-none">
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-[#b76614] mb-4">1. Introduction</h2>
+                    <p>Women in Health Africa ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services. We respect your privacy and are committed to protecting it through our compliance with this policy.</p>
+                    
+                    <p class="mt-4">This policy applies to information we collect:</p>
+                    <ul class="list-disc pl-6 mt-2 space-y-2">
+                        <li>On our website</li>
+                        <li>In email, text, and other electronic messages between you and our website</li>
+                        <li>Through mobile and desktop applications you download from our website</li>
+                        <li>When you interact with our advertising and applications on third-party websites and services</li>
+                    </ul>
+                    
+                    <p class="mt-4">Please read this policy carefully to understand our policies and practices regarding your information and how we will treat it. If you do not agree with our policies and practices, your choice is not to use our website. By accessing or using this website, you agree to this privacy policy.</p>
+                </section>
+
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-[#b76614] mb-4">2. Information We Collect</h2>
+                    <p>We collect several types of information from and about users of our website, including:</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Personal Information</h3>
+                    <p>This includes information by which you may be personally identified, such as:</p>
+                    <ul class="list-disc pl-6 mt-2 space-y-2">
+                        <li>Full name, title, and professional designation</li>
+                        <li>Contact information (email address, phone number, mailing address)</li>
+                        <li>Professional background and qualifications</li>
+                        <li>Payment and donation information (processed securely through our payment processors)</li>
+                        <li>Username, password, and other account credentials</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Non-Personal Information</h3>
+                    <p>We may collect non-personal information about you whenever you interact with our website, including:</p>
+                    <ul class="list-disc pl-6 mt-2 space-y-2">
+                        <li>Browser type and version</li>
+                        <li>Device information (e.g., device type, operating system)</li>
+                        <li>IP address and general location data</li>
+                        <li>Pages visited, time spent on pages, and navigation patterns</li>
+                        <li>Referring website or search terms used to find our site</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">How We Collect Information</h3>
+                    <p>We use different methods to collect data from and about you, including:</p>
+                    <ul class="list-disc pl-6 mt-2 space-y-2">
+                        <li><strong>Direct interactions:</strong> When you register, make a donation, subscribe to our newsletter, or request information</li>
+                        <li><strong>Automated technologies:</strong> As you navigate through the site, we may use automatic data collection technologies</li>
+                        <li><strong>Third parties:</strong> From third parties, for example, our business partners or analytics providers</li>
+                    </ul>
+                </section>
+
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-[#b76614] mb-4">3. How We Use Your Information</h2>
+                    <p>We use the information we collect for various purposes, including:</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Service Provision and Account Management</h3>
+                    <ul class="list-disc pl-6 mt-2 space-y-2">
+                        <li>To present our website and its contents to you</li>
+                        <li>To provide you with information, products, or services that you request from us</li>
+                        <li>To process and manage your donations, including sending receipts and acknowledgments</li>
+                        <li>To create, maintain, and manage your account</li>
+                        <li>To notify you about changes to our website, services, or policies</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Communication and Engagement</h3>
+                    <ul class="list-disc pl-6 mt-2 space-y-2">
+                        <li>To send you newsletters, updates, and other communications about our work</li>
+                        <li>To respond to your inquiries, comments, or requests</li>
+                        <li>To invite you to participate in surveys, events, or research</li>
+                        <li>To provide you with information about volunteer opportunities</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Improvement and Analysis</h3>
+                    <ul class="list-disc pl-6 mt-2 space-y-2">
+                        <li>To improve our website, services, and user experience</li>
+                        <li>To analyze usage patterns and trends</li>
+                        <li>To develop new programs, services, and content</li>
+                        <li>To measure the effectiveness of our communications and outreach</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Legal and Security</h3>
+                    <ul class="list-disc pl-6 mt-2 space-y-2">
+                        <li>To comply with legal obligations and regulatory requirements</li>
+                        <li>To protect our rights, property, or safety, and that of our users or others</li>
+                        <li>To prevent fraud and enhance security</li>
+                        <li>To enforce our terms of service and other agreements</li>
+                    </ul>
+                    
+                    <p class="mt-6">We will only use your personal data for the purposes for which we collected it, unless we reasonably consider that we need to use it for another reason that is compatible with the original purpose.</p>
+                </section>
+
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-[#b76614] mb-4">4. Data Security and Retention</h2>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Security Measures</h3>
+                    <p>We have implemented measures designed to secure your personal information from accidental loss and from unauthorized access, use, alteration, and disclosure. The safety and security of your information also depends on you. Where we have given you (or where you have chosen) a password for access to certain parts of our website, you are responsible for keeping this password confidential.</p>
+                    
+                    <p class="mt-4">Our security measures include:</p>
+                    <ul class="list-disc pl-6 mt-2 space-y-2">
+                        <li>Encryption of sensitive data in transit and at rest</li>
+                        <li>Regular security assessments and updates to our systems</li>
+                        <li>Restricted access to personal information on a need-to-know basis</li>
+                        <li>Secure servers and networks protected by firewalls and other security measures</li>
+                        <li>Regular staff training on data protection and privacy</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Data Retention</h3>
+                    <p>We will only retain your personal information for as long as necessary to fulfill the purposes we collected it for, including for the purposes of satisfying any legal, accounting, or reporting requirements. To determine the appropriate retention period for personal data, we consider:</p>
+                    <ul class="list-disc pl-6 mt-2 space-y-2">
+                        <li>The amount, nature, and sensitivity of the personal data</li>
+                        <li>The potential risk of harm from unauthorized use or disclosure</li>
+                        <li>The purposes for which we process your personal data</li>
+                        <li>Any applicable legal requirements</li>
+                    </ul>
+                    
+                    <p class="mt-4">In some circumstances we may anonymize your personal data (so that it can no longer be associated with you) for research or statistical purposes, in which case we may use this information indefinitely without further notice to you.</p>
+                </section>
+
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-[#b76614] mb-4">5. Your Rights and Choices</h2>
+                    
+                    <p>Depending on your location and applicable laws, you may have the following rights regarding your personal information:</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Access and Portability</h3>
+                    <ul class="list-disc pl-6 mt-2 space-y-2">
+                        <li><strong>Right to Access:</strong> You can request a copy of the personal information we hold about you.</li>
+                        <li><strong>Right to Data Portability:</strong> You can request a copy of your data in a structured, commonly used, and machine-readable format.</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Correction and Deletion</h3>
+                    <ul class="list-disc pl-6 mt-2 space-y-2">
+                        <li><strong>Right to Rectification:</strong> You can request correction of inaccurate or incomplete personal data.</li>
+                        <li><strong>Right to Erasure ("Right to be Forgotten"):</strong> You can request deletion of your personal data under certain circumstances.</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Control Over Processing</h3>
+                    <ul class="list-disc pl-6 mt-2 space-y-2">
+                        <li><strong>Right to Restrict Processing:</strong> You can request that we limit how we use your personal data.</li>
+                        <li><strong>Right to Object:</strong> You can object to our processing of your personal data.</li>
+                        <li><strong>Right to Withdraw Consent:</strong> Where we rely on your consent, you can withdraw it at any time.</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Automated Decision Making</h3>
+                    <ul class="list-disc pl-6 mt-2 space-y-2">
+                        <li><strong>Right to Human Review:</strong> You have the right not to be subject to a decision based solely on automated processing.</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">How to Exercise Your Rights</h3>
+                    <p>To exercise any of these rights, please contact us using the information in the "Contact Us" section. We may need to verify your identity before processing your request, which may require additional information.</p>
+                    
+                    <p class="mt-4">You also have the right to lodge a complaint with a data protection authority if you believe we have not complied with applicable data protection laws.</p>
+                </section>
+
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-[#b76614] mb-4">6. International Data Transfers</h2>
+                    <p>As an international organization, we may transfer, store, and process your personal information in countries other than your country of residence. These countries may have data protection laws that are different from those of your country.</p>
+                    
+                    <p class="mt-4">When we transfer personal information across borders, we take steps to ensure that your data remains protected in accordance with this Privacy Policy and applicable data protection laws. These measures may include:</p>
+                    
+                    <ul class="list-disc pl-6 mt-2 space-y-2">
+                        <li>Transferring to countries that have been deemed to provide an adequate level of protection</li>
+                        <li>Using standard contractual clauses approved by the European Commission or other relevant authorities</li>
+                        <li>Implementing additional safeguards such as encryption and access controls</li>
+                    </ul>
+                    
+                    <p class="mt-4">By using our website and providing your information, you acknowledge these transfers of your personal information may occur.</p>
+                </section>
+                
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-[#b76614] mb-4">7. Third-Party Links</h2>
+                    <p>Our website may contain links to third-party websites, plug-ins, and applications. Clicking on those links may allow third parties to collect or share data about you. We do not control these third-party websites and are not responsible for their privacy statements. When you leave our website, we encourage you to read the privacy policy of every website you visit.</p>
+                </section>
+                
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-[#b76614] mb-4">8. Children's Privacy</h2>
+                    <p>Our website is not intended for children under 16 years of age. We do not knowingly collect personal information from children under 16. If you are under 16, do not use or provide any information on this website or through any of its features. If we learn we have collected or received personal information from a child under 16, we will delete that information.</p>
+                </section>
+                
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-[#b76614] mb-4">9. Changes to This Privacy Policy</h2>
+                    <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date at the top of this policy. You are advised to review this Privacy Policy periodically for any changes.</p>
+                    
+                    <p class="mt-4">Your continued use of our website after we make changes is deemed to be acceptance of those changes, so please check the policy periodically for updates.</p>
+                </section>
+                
+                <section>
+                    <h2 class="text-2xl font-bold text-[#b76614] mb-4">10. Contact Us</h2>
+                    <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our privacy practices, please contact us at:</p>
+                    
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                        <p class="font-medium">Women in Health Africa</p>
+                        <p>Email: <a href="mailto:privacy@womeninhealthafrica.org" class="text-[#b76614] hover:underline">privacy@womeninhealthafrica.org</a></p>
+                        <p>Mailing Address: [Your Organization's Full Address]</p>
+                        <p>Phone: [Your Contact Number]</p>
+                    </div>
+                    
+                    <p class="mt-4">We will respond to your inquiry as soon as possible and within the timeframes required by applicable law.</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[var(--footer-bg)] text-[var(--footer-text)] py-12">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                <!-- About Section -->
+                <div class="flex flex-col items-start">
+                    <h3 class="text-lg font-semibold mb-4">About Us</h3>
+                    <p class="text-sm mb-6 max-w-md">Empowering women in health across Africa through education, connection, and support.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-[var(--footer-text)] hover:text-[#1877f2] transition-colors duration-200" target="_blank">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="http://www.youtube.com/@Dr_Kiki" class="text-[var(--footer-text)] hover:text-[#ff0000] transition-colors duration-200" target="_blank">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com/hermosa_mimosa_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="text-[var(--footer-text)] hover:text-[#e1306c] transition-colors duration-200" target="_blank">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-[var(--footer-text)] hover:text-[#000000] group transition-colors duration-200" target="_blank">
+                            <i class="fab fa-tiktok text-xl group-hover:text-[#00f2ea]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Newsletter Section -->
+                <div class="flex flex-col items-start">
+                    <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
+                    <div class="w-full max-w-md">
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <input type="email" id="footer-newsletter-email" placeholder="Enter your email" class="flex-1 px-4 py-2 rounded-md border border-[var(--accent-color)] bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)]" required>
+                            <button type="button" onclick="validateFooterNewsletterForm(event)" class="px-6 py-2 bg-[var(--primary-color)] text-white rounded-lg hover:bg-opacity-90 transition-all duration-200 font-medium">
+                                Subscribe
+                            </button>
+                        </div>
+                        <p class="text-sm mt-3">Stay updated with our latest news and updates</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-[var(--accent-color)] mt-12 pt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-sm mb-4 md:mb-0">&copy; 2026 Women in Health Africa. All rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="privacy-policy.html" class="text-sm hover:underline">Privacy Policy</a>
+                        <a href="terms-of-service.html" class="text-sm hover:underline">Terms of Service</a>
+                        <a href="cookie-policy.html" class="text-sm hover:underline">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<!-- JavaScript for Mobile Menu -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function openMenu() {
+            mobileMenuOverlay.classList.remove('hidden');
+            setTimeout(() => {
+                mobileMenu.classList.remove('translate-x-full');
+            }, 10);
+        }
+
+        function closeMenu() {
+            mobileMenu.classList.add('translate-x-full');
+            setTimeout(() => {
+                mobileMenuOverlay.classList.add('hidden');
+            }, 300);
+        }
+
+        mobileMenuButton.addEventListener('click', openMenu);
+        closeMobileMenuButton.addEventListener('click', closeMenu);
+        mobileMenuOverlay.addEventListener('click', function(event) {
+            if (event.target === mobileMenuOverlay) {
+                closeMenu();
+            }
+        });
+
+        // Mobile submenu toggles
+        const submenuToggles = document.querySelectorAll('.mobile-submenu-toggle');
+        submenuToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const submenu = toggle.nextElementSibling;
+                const icon = toggle.querySelector('.material-icons');
+                
+                submenu.classList.toggle('hidden');
+                if (submenu.classList.contains('hidden')) {
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        if (backToTopButton) {
+            // Show/hide button based on scroll position
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.style.display = 'block';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+
+            // Smooth scroll to top when clicked
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+    });
+</script>
+</div>
+
+    <!-- Universal Confirmation Script -->
+    <script src="js/universal-confirmations.js"></script>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Loading Animation Script -->
+    <script>
+      // Function to hide loading screen
+      function hideLoadingScreen() {
+          const loadingScreen = document.getElementById('loading-screen');
+          const mainContent = document.querySelector('.main-content');
+          
+          if (loadingScreen) {
+              loadingScreen.classList.remove('loading-fade-in');
+              loadingScreen.classList.add('loading-fade-out');
+              
+              setTimeout(() => {
+                  if (mainContent) {
+                      mainContent.classList.add('loaded');
+                  }
+                  
+                  setTimeout(() => {
+                      if (loadingScreen) {
+                          loadingScreen.style.display = 'none';
+                      }
+                  }, 500);
+              }, 200);
+          }
+      }
+      
+      // Start loading animation on DOM content loaded
+      document.addEventListener('DOMContentLoaded', function() {
+          const loadingScreen = document.getElementById('loading-screen');
+          
+          if (loadingScreen) {
+              loadingScreen.classList.add('loading-fade-in');
+          }
+          
+          // Hide loading screen when page is fully loaded
+          window.addEventListener('load', hideLoadingScreen);
+          
+          // Fallback: hide loading screen after 2 seconds if load event doesn't fire
+          setTimeout(hideLoadingScreen, 2000);
+      });
+    </script>
+    
+    <!-- Footer Newsletter Validation Script -->
+    <script>
+        function validateFooterNewsletterForm(event) {
+            // Prevent default behavior and stop propagation
+            event.preventDefault();
+            event.stopPropagation();
+            
+            const emailInput = document.getElementById('footer-newsletter-email');
+            const email = emailInput.value.trim();
+            
+            // Clear previous error messages
+            clearFieldError(emailInput);
+            
+            let isValid = true;
+            
+            // Validate email
+            if (email === '') {
+                showFieldError(emailInput, 'Email is required');
+                isValid = false;
+            } else if (!isValidEmail(email)) {
+                showFieldError(emailInput, 'Please enter a valid email address');
+                isValid = false;
+            }
+            
+            // If validation passes, show confirmation
+            if (isValid) {
+                // Trigger the universal confirmation
+                if (window.universalConfirmation) {
+                    window.universalConfirmation.showConfirmationPopup(
+                        'Subscription Successful!',
+                        'Thank you for subscribing to our newsletter. You\'ll receive our latest updates in your inbox.',
+                        'email',
+                        'blue'
+                    );
+                }
+                
+                // Reset form after showing confirmation
+                setTimeout(() => {
+                    emailInput.value = '';
+                }, 1000);
+            }
+            
+            return false;
+        }
+        
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+        
+        function showFieldError(field, message) {
+            clearFieldError(field);
+            
+            // Add red border to indicate error
+            field.classList.add('border-red-500');
+            
+            // Set error message as placeholder to show inside the input
+            field.placeholder = message;
+            field.classList.add('text-red-500');
+            
+            // Clear placeholder on focus
+            field.addEventListener('focus', function() {
+                if (field.placeholder === message) {
+                    field.placeholder = 'Enter your email';
+                    field.classList.remove('text-red-500');
+                }
+            }, { once: true });
+        }
+        
+        function clearFieldError(field) {
+            field.classList.remove('border-red-500');
+            field.classList.remove('text-red-500');
+            
+            // Reset placeholder to default
+            if (field.placeholder === 'Email is required' || field.placeholder === 'Please enter a valid email address') {
+                field.placeholder = 'Enter your email';
+            }
+            
+            // Remove any external error divs (for backwards compatibility)
+            const errorDiv = field.parentNode.querySelector('.field-error');
+            if (errorDiv) {
+                errorDiv.remove();
+            }
+        }
+    </script>
+
+    <script src="js/newsletter.js"></script>
+    
+    
+    <script>
+        // Mobile submenu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all mobile submenu toggle buttons
+            const submenuToggles = document.querySelectorAll('.mobile-submenu-toggle');
+            
+            // Add click event listeners to each toggle button
+            submenuToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    // Toggle the 'active' class on the parent menu item
+                    const menuItem = this.closest('.mobile-menu-item');
+                    menuItem.classList.toggle('active');
+                    
+                    // Toggle the submenu visibility
+                    const submenu = this.nextElementSibling;
+                    submenu.classList.toggle('hidden');
+                    
+                    // Rotate the arrow icon
+                    const arrow = this.querySelector('.material-icons');
+                    if (arrow) {
+                        arrow.classList.toggle('rotate-180');
+                    }
+                });
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileMenuLinks = document.querySelectorAll('#mobile-menu a:not([data-donate])');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    closeMenu();
+                });
+            });
+        });
+    </script>
+
+    <!-- Donation Popup -->
+    <div id="donation-popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-6 max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-gray-900">Support Our Cause</h3>
+                <button id="close-donation-popup" class="text-gray-500 hover:text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            <p class="text-gray-600 mb-6">Your donation helps us continue our mission. Thank you for your support!</p>
+            <div class="space-y-4">
+                <button class="w-full bg-yellow-300 hover:bg-yellow-400 text-gray-800 font-bold py-3 px-4 rounded transition duration-200">
+                    $25
+                </button>
+                <button class="w-full bg-yellow-300 hover:bg-yellow-400 text-gray-800 font-bold py-3 px-4 rounded transition duration-200">
+                    $50
+                </button>
+                <button class="w-full bg-yellow-300 hover:bg-yellow-400 text-gray-800 font-bold py-3 px-4 rounded transition duration-200">
+                    $100
+                </button>
+                <div class="relative mt-2">
+                    <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">$</span>
+                    <input type="number" placeholder="Other amount" class="w-full pl-8 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                </div>
+                <button class="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-4 rounded transition duration-200 mt-4">
+                    Donate Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Donation popup functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show popup
+            document.querySelectorAll('[data-donate]').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.getElementById('donation-popup').classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            // Close popup
+            document.getElementById('close-donation-popup').addEventListener('click', function() {
+                document.getElementById('donation-popup').classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+
+            // Close when clicking outside
+            document.getElementById('donation-popup').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+    </script>
+    
+    
+    <script src="js/mobile-menu-fix.js"></script>
+</body>
+</html>

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Terms of Service - Hermosa Mimosa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        :root {
+            --primary-pink: #ec4899;
+            --secondary-pink: #f472b6;
+            --light-pink: #fce7f3;
+            --dark-pink: #be185d;
+            --background-gradient: linear-gradient(135deg, #fce7f3 0%, #f9a8d4 50%, #ec4899 100%);
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --accent-pink: #fdf2f8;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: white;
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.9) 0%, rgba(244, 114, 182, 0.8) 50%, rgba(236, 72, 153, 0.9) 100%);
+        }
+        .card-gradient {
+            background: white;
+            border: 1px solid rgba(236, 72, 153, 0.2);
+        }
+        .pink-shadow {
+            box-shadow: 0 20px 40px rgba(236, 72, 153, 0.15);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .button-pink {
+            background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+        }
+        .button-pink:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(236, 72, 153, 0.4);
+        }
+    </style>
+</head>
+<body class="group/design-root">
+<div class="relative flex size-full min-h-screen flex-col overflow-x-hidden">
+    <div class="flex h-full grow flex-col">
+        <header class="fixed top-0 left-0 right-0 z-50 w-full h-[60px] bg-white shadow-md border-b border-gray-200">
+            <div class="container mx-auto h-full flex items-center justify-between px-4 lg:px-10">
+                <!-- Logo on far left -->
+                <a href="HermosaMimosa.html" class="flex items-center gap-3 text-[var(--text-primary)]">
+                    <div class="h-8 w-8 text-[var(--primary-pink)]">
+                        <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z" fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-lg font-bold tracking-tight">Hermosa Mimosa</h2>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden items-center gap-6 md:flex ml-auto">
+                    <a class="text-sm font-medium text-gray-700 hover:text-[var(--primary-pink)] transition-colors h-[60px] flex items-center border-b-2 border-transparent hover:border-[var(--primary-pink)]" href="HermosaMimosa.html">Home</a>
+                    <a class="text-sm font-medium text-gray-700 hover:text-[var(--primary-pink)] transition-colors h-[60px] flex items-center border-b-2 border-transparent hover:border-[var(--primary-pink)]" href="HermosaMimosa.html#about">About</a>
+                    <a class="text-sm font-medium text-gray-700 hover:text-[var(--primary-pink)] transition-colors h-[60px] flex items-center border-b-2 border-transparent hover:border-[var(--primary-pink)]" href="HermosaMimosa.html#programs">Programs</a>
+                    <a class="text-sm font-medium text-gray-700 hover:text-[var(--primary-pink)] transition-colors h-[60px] flex items-center border-b-2 border-transparent hover:border-[var(--primary-pink)]" href="index.html">Wiha</a>
+                    <a href="#" data-donate class="text-sm font-medium text-gray-700 hover:text-[var(--primary-pink)] transition-colors h-[60px] flex items-center border-b-2 border-transparent hover:border-[var(--primary-pink)] relative px-2 py-1 bg-yellow-300 rounded hover:bg-yellow-400">
+                        <svg class="w-4 h-4 mr-1 inline text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                        Donate
+                    </a>
+                </nav>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-[var(--primary-pink)] focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="HermosaMimosa.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-[var(--primary-pink)]">Home</a>
+                    <a href="HermosaMimosa.html#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-[var(--primary-pink)]">About</a>
+                    <a href="HermosaMimosa.html#programs" class="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-[var(--primary-pink)]">Programs</a>
+                    <a href="index.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-[var(--primary-pink)]">Wiha</a>
+                    <a href="#" data-donate class="block px-3 py-2 text-base font-medium text-gray-700 bg-yellow-300 rounded hover:bg-yellow-400">
+                        <svg class="w-4 h-4 mr-1 inline text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                        Donate
+                    </a>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Add padding to account for fixed header -->
+        <div class="pt-[60px]"></div>
+        
+        <!-- Mobile menu script -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const mobileMenuButton = document.getElementById('mobile-menu-button');
+                const mobileMenu = document.getElementById('mobile-menu');
+                
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!mobileMenuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+        </script>
+
+        <main class="flex-1">
+            <!-- Hero Section -->
+            <section class="relative min-h-[40vh] flex items-center justify-center overflow-hidden">
+                <div class="absolute inset-0 hero-gradient"></div>
+                <div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+                    <h1 class="text-4xl md:text-5xl font-black mb-6 leading-tight">
+                        <span class="text-white">Terms of Service</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 font-light leading-relaxed opacity-90">
+                        Guidelines for our community and programs
+                    </p>
+                </div>
+            </section>
+
+            <!-- Terms Content -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-4 max-w-4xl">
+                    <div class="prose prose-lg max-w-none">
+                        <div class="space-y-8">
+                            <!-- Acceptance of Terms -->
+                            <div class="card-gradient rounded-2xl p-8 pink-shadow">
+                                <h2 class="text-2xl font-bold mb-4 text-[var(--primary-pink)]">Acceptance of Terms</h2>
+                                <p class="text-[var(--text-secondary)] leading-relaxed">
+                                    By accessing and using Hermosa Mimosa services, programs, workshops, and community features, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
+                                </p>
+                            </div>
+
+                            <!-- Description of Services -->
+                            <div class="card-gradient rounded-2xl p-8 pink-shadow">
+                                <h2 class="text-2xl font-bold mb-4 text-[var(--primary-pink)]">Description of Services</h2>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h3 class="text-lg font-semibold mb-2">Wellness Programs</h3>
+                                        <p class="text-[var(--text-secondary)]">Hermosa Mimosa provides:</p>
+                                        <ul class="list-disc list-inside space-y-2 ml-4 text-[var(--text-secondary)]">
+                                            <li>Skincare education and workshops</li>
+                                            <li>Wellness and self-care programs</li>
+                                            <li>Community building activities</li>
+                                            <li>Online resources and content</li>
+                                            <li>Networking opportunities</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold mb-2">Platform Features</h3>
+                                        <p class="text-[var(--text-secondary)]">Our services include:</p>
+                                        <ul class="list-disc list-inside space-y-2 ml-4 text-[var(--text-secondary)]">
+                                            <li>Workshop registration and participation</li>
+                                            <li>Community forums and discussions</li>
+                                            <li>Personalized wellness recommendations</li>
+                                            <li>Newsletter and updates</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- User Responsibilities -->
+                            <div class="card-gradient rounded-2xl p-8 pink-shadow">
+                                <h2 class="text-2xl font-bold mb-4 text-[var(--primary-pink)]">User Responsibilities</h2>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h3 class="text-lg font-semibold mb-2">Community Guidelines</h3>
+                                        <p class="text-[var(--text-secondary)]">As a community member, you agree to:</p>
+                                        <ul class="list-disc list-inside space-y-2 ml-4 text-[var(--text-secondary)]">
+                                            <li>Be respectful and supportive of all members</li>
+                                            <li>Share accurate and honest information</li>
+                                            <li>Participate constructively in discussions</li>
+                                            <li>Respect privacy and confidentiality</li>
+                                            <li>Follow all program guidelines and instructions</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold mb-2">Prohibited Activities</h3>
+                                        <p class="text-[var(--text-secondary)]">You may not:</p>
+                                        <ul class="list-disc list-inside space-y-2 ml-4 text-[var(--text-secondary)]">
+                                            <li>Share inappropriate or harmful content</li>
+                                            <li>Spam or harass other members</li>
+                                            <li>Share false or misleading information</li>
+                                            <li>Violate any applicable laws</li>
+                                            <li>Use our services for commercial purposes without permission</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Program Participation -->
+                            <div class="card-gradient rounded-2xl p-8 pink-shadow">
+                                <h2 class="text-2xl font-bold mb-4 text-[var(--primary-pink)]">Program Participation</h2>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h3 class="text-lg font-semibold mb-2">Registration & Payment</h3>
+                                        <p class="text-[var(--text-secondary)]">For paid programs:</p>
+                                        <ul class="list-disc list-inside space-y-2 ml-4 text-[var(--text-secondary)]">
+                                            <li>Complete registration forms accurately</li>
+                                            <li>Provide payment information securely</li>
+                                            <li>Understand refund and cancellation policies</li>
+                                            <li>Attend programs as scheduled</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold mb-2">Workshop Participation</h3>
+                                        <p class="text-[var(--text-secondary)]">Participants must:</p>
+                                        <ul class="list-disc list-inside space-y-2 ml-4 text-[var(--text-secondary)]">
+                                            <li>Arrive on time and prepared</li>
+                                            <li>Follow facilitator instructions</li>
+                                            <li>Respect other participants' experiences</li>
+                                            <li>Provide constructive feedback</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Intellectual Property -->
+                            <div class="card-gradient rounded-2xl p-8 pink-shadow">
+                                <h2 class="text-2xl font-bold mb-4 text-[var(--primary-pink)]">Intellectual Property</h2>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h3 class="text-lg font-semibold mb-2">Our Content</h3>
+                                        <p class="text-[var(--text-secondary)]">All Hermosa Mimosa content including:</p>
+                                        <ul class="list-disc list-inside space-y-2 ml-4 text-[var(--text-secondary)]">
+                                            <li>Educational materials and resources</li>
+                                            <li>Workshop curricula and content</li>
+                                            <li>Website design and functionality</li>
+                                            <li>Brand materials and logos</li>
+                                        </ul>
+                                        <p class="text-[var(--text-secondary)] mt-2">Remain the property of Hermosa Mimosa and Women in Health Africa.</p>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold mb-2">User Content</h3>
+                                        <p class="text-[var(--text-secondary)]">When you share content:</p>
+                                        <ul class="list-disc list-inside space-y-2 ml-4 text-[var(--text-secondary)]">
+                                            <li>You retain ownership of your original content</li>
+                                            <li>You grant us license to use it for community purposes</li>
+                                            <li>You must have rights to share the content</li>
+                                            <li>We may remove inappropriate content</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Limitation of Liability -->
+                            <div class="card-gradient rounded-2xl p-8 pink-shadow">
+                                <h2 class="text-2xl font-bold mb-4 text-[var(--primary-pink)]">Limitation of Liability</h2>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h3 class="text-lg font-semibold mb-2">Service Availability</h3>
+                                        <p class="text-[var(--text-secondary)]">We strive to provide reliable services but:</p>
+                                        <ul class="list-disc list-inside space-y-2 ml-4 text-[var(--text-secondary)]">
+                                            <li>Services are provided "as is" without warranties</li>
+                                            <li>We are not liable for service interruptions</li>
+                                            <li>Technical issues may occur occasionally</li>
+                                            <li>We are not responsible for third-party content</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold mb-2">Health & Safety</h3>
+                                        <p class="text-[var(--text-secondary)]">Important disclaimers:</p>
+                                        <ul class="list-disc list-inside space-y-2 ml-4 text-[var(--text-secondary)]">
+                                            <li>Our advice is educational, not medical</li>
+                                            <li>Consult healthcare professionals for medical concerns</li>
+                                            <li>Participate at your own risk</li>
+                                            <li>We are not liable for personal injuries or health issues</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Termination -->
+                            <div class="card-gradient rounded-2xl p-8 pink-shadow">
+                                <h2 class="text-2xl font-bold mb-4 text-[var(--primary-pink)]">Termination</h2>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h3 class="text-lg font-semibold mb-2">Account Termination</h3>
+                                        <p class="text-[var(--text-secondary)]">We may terminate accounts for:</p>
+                                        <ul class="list-disc list-inside space-y-2 ml-4 text-[var(--text-secondary)]">
+                                            <li>Violation of these terms</li>
+                                            <li>Inappropriate behavior</li>
+                                            <li>Fraudulent activity</li>
+                                            <li>Extended inactivity</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold mb-2">User Termination</h3>
+                                        <p class="text-[var(--text-secondary)]">You may terminate your account:</p>
+                                        <ul class="list-disc list-inside space-y-2 ml-4 text-[var(--text-secondary)]">
+                                            <li>At any time for any reason</li>
+                                            <li>By contacting us or using account settings</li>
+                                            <li>Understanding some data may be retained</li>
+                                            <li>Losing access to certain features</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Contact Information -->
+                            <div class="card-gradient rounded-2xl p-8 pink-shadow">
+                                <h2 class="text-2xl font-bold mb-4 text-[var(--primary-pink)]">Contact Information</h2>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h3 class="text-lg font-semibold mb-2">Questions & Concerns</h3>
+                                        <p class="text-[var(--text-secondary)]">For questions about these Terms of Service:</p>
+                                        <div class="bg-[var(--accent-pink)] rounded-lg p-4 mt-4">
+                                            <p class="text-[var(--primary-pink)] font-semibold">legal@hermosamimosa.org</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold mb-2">General Inquiries</h3>
+                                        <p class="text-[var(--text-secondary)]">For other questions or support:</p>
+                                        <div class="bg-[var(--accent-pink)] rounded-lg p-4 mt-4">
+                                            <p class="text-[var(--primary-pink)] font-semibold">info@hermosamimosa.org</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Updates to Terms -->
+                            <div class="card-gradient rounded-2xl p-8 pink-shadow">
+                                <h2 class="text-2xl font-bold mb-4 text-[var(--primary-pink)]">Updates to Terms</h2>
+                                <p class="text-[var(--text-secondary)] leading-relaxed">
+                                    We may update these Terms of Service from time to time to reflect changes in our services, legal requirements, or community needs. Any changes will be posted on this page with an updated effective date. Continued use of our services constitutes acceptance of any updated terms.
+                                </p>
+                                <p class="text-[var(--text-secondary)] leading-relaxed mt-4">
+                                    <strong>Last Updated:</strong> December 2026
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white">
+            <div class="container mx-auto px-4 py-12">
+                <div class="flex flex-col items-center justify-between gap-8 md:flex-row">
+                    <div class="flex items-center gap-3">
+                        <div class="h-10 w-10 text-[var(--primary-pink)]">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z" fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <div class="text-center md:text-left">
+                            <h2 class="text-2xl font-bold text-white">Hermosa Mimosa</h2>
+                            <p class="text-pink-300">Women in Health Africa</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <a href="HermosaMimosa-privacy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+                        <a href="HermosaMimosa-terms.html" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+                        <a href="HermosaMimosa-contact.html" class="text-gray-400 hover:text-white transition-colors">Contact Us</a>
+                    </div>
+                    <div class="flex gap-4">
+                        <a class="text-gray-400 hover:text-[var(--primary-pink)] transition-colors" href="https://www.facebook.com/hermosamimosa">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a class="text-gray-400 hover:text-[var(--primary-pink)] transition-colors" href="https://www.instagram.com/hermosa_mimosa_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a class="text-gray-400 hover:text-pink-500 transition-colors" href="https://www.tiktok.com/@hermosamimosa">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                            </svg>
+                        </a>
+                        <a class="text-gray-400 hover:text-red-500 transition-colors" href="https://www.youtube.com/@hermosamimosa">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="mt-8 border-t border-gray-700 pt-8 text-center text-gray-400">
+                    <p>&copy; 2026 Hermosa Mimosa - Women in Health Africa. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+
+<!-- Donation Popup -->
+<div id="donation-popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-lg p-6 max-w-md w-full mx-4">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-xl font-bold text-gray-900">Support Our Cause</h3>
+            <button id="close-donation-popup" class="text-gray-500 hover:text-gray-700">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <p class="text-gray-600 mb-6">Your donation helps us continue our mission. Thank you for your support!</p>
+        <div class="space-y-4">
+            <button class="w-full bg-yellow-300 hover:bg-yellow-400 text-gray-800 font-bold py-3 px-4 rounded transition duration-200">
+                $25
+            </button>
+            <button class="w-full bg-yellow-300 hover:bg-yellow-400 text-gray-800 font-bold py-3 px-4 rounded transition duration-200">
+                $50
+            </button>
+            <button class="w-full bg-yellow-300 hover:bg-yellow-400 text-gray-800 font-bold py-3 px-4 rounded transition duration-200">
+                $100
+            </button>
+            <div class="relative mt-2">
+                <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">$</span>
+                <input type="number" placeholder="Other amount" class="w-full pl-8 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+            </div>
+            <button class="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-4 rounded transition duration-200 mt-4">
+                Donate Now
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Donation popup functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        // Show popup
+        document.querySelectorAll('[data-donate]').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.getElementById('donation-popup').classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close popup
+        document.getElementById('close-donation-popup').addEventListener('click', function() {
+            document.getElementById('donation-popup').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close when clicking outside
+        document.getElementById('donation-popup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+    <title>Women in Health Africa - Features</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
+    />
+    <style>
+
+        /* Mobile menu animations */
+        .mobile-submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .mobile-menu-item.active .mobile-submenu {
+            max-height: 1000px; /* Adjust based on your content */
+            transition: max-height 0.5s ease-in;
+        }
+        
+        .rotate-180 {
+            transform: rotate(180deg);
+        }
+        
+        .transition-transform {
+            transition: transform 0.2s ease-in-out;
+        }
+
+        :root {
+            --primary-color: #b76614;
+            --background-color: #f8f4f0;
+            --text-primary: #3e2723;
+            --text-secondary: #795548;
+            --accent-color: #d7ccc8;
+            --footer-bg: #C4B5A5;
+            --footer-text: #3e2723;
+            --nav-bg: #EAE0D5;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Responsive Navigation Styles */
+        .nav-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        @media (max-width: 1024px) {
+            .mobile-menu {
+                transform: translateX(100%);
+                transition: transform 0.3s ease-in-out;
+            }
+            
+            .mobile-menu.active {
+                transform: translateX(0);
+            }
+            
+            
+            
+            .mobile-submenu.active {
+                max-height: 500px;
+            }
+        }
+
+        /* Navigation Hover Effects */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #8B4513;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Dropdown hover delay */
+        .dropdown-group {
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-group:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        /* Cohere-style Logo */
+        .cohere-logo {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-weight: 500;
+            font-size: 1.25rem;
+            color: #166534;
+            letter-spacing: -0.025em;
+        }
+
+        .cohere-logo .o-gap {
+            position: relative;
+        }
+
+        .cohere-logo .o-gap::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+        }
+    
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border: none;
+            outline: none;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Feature Button Styling */
+        .feature-more, .spotlight-text {
+            background-color: var(--primary-color);
+            color: white !important;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            border: 2px solid var(--primary-color);
+        }
+
+        .spotlight-text {
+            background-color: #8B6F47;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-more:hover, .spotlight-text:hover {
+            background-color: #6B5335;
+            transform: translateY(-1px);
+            border-color: #6B5335;
+        }
+
+        /* Loading Screen Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+        @keyframes slideUp {
+            from { 
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to { 
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .loading-fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .loading-fade-out {
+            animation: fadeOut 0.5s ease-in-out forwards;
+        }
+
+        .loading-slide-up {
+            animation: slideUp 0.6s ease-out;
+        }
+
+        /* Hide main content initially */
+        .main-content {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .main-content.loaded {
+            opacity: 1;
+        }
+
+        /* Enhanced Loading Animation */
+        #loading-screen {
+            background: linear-gradient(135deg, #f8f4f0 0%, #e6b88a 100%);
+        }
+
+        .loading-logo {
+            animation: logoPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes logoPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .loading-text {
+            animation: textSlide 1s ease-out;
+        }
+
+        @keyframes textSlide {
+            from { 
+                transform: translateY(10px);
+                opacity: 0;
+            }
+            to { 
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .loading-dots {
+            animation: dotsBounce 1.5s ease-in-out infinite;
+        }
+
+        @keyframes dotsBounce {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-5px); }
+        }
+    
+    </style>
+    <link rel="stylesheet" href="css/mobile-menu.css">
+    <link rel="stylesheet" href="css/mobile-nav.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            padding-top: 60px; /* Adjusted for 60px nav */
+        }
+    </style>
+</head>
+<body class="bg-white">
+<!-- Loading Animation -->
+<div id="loading-screen" class="fixed inset-0 z-[9999] flex items-center justify-center">
+    <div class="text-center">
+        <div class="relative w-24 h-24 mx-auto mb-4 loading-logo">
+            <!-- Main rotating circle -->
+            <div class="absolute inset-0 border-4 border-[#b76614] border-t-transparent rounded-full animate-spin"></div>
+            <!-- Center logo placeholder -->
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
+                    <span class="text-[#b76614] font-bold text-sm">WIHA</span>
+                </div>
+            </div>
+        </div>
+        <div class="text-[#3e2723] font-medium mb-2 loading-text">Women in Health Africa</div>
+        <!-- Progress dots -->
+        <div class="flex justify-center space-x-2 mt-4 loading-dots">
+            <div class="w-2 h-2 bg-[#b76614] rounded-full animate-pulse"></div>
+            <div class="w-2 h-2 bg-[#b76614] rounded-full animate-pulse" style="animation-delay: 0.2s;"></div>
+            <div class="w-2 h-2 bg-[#b76614] rounded-full animate-pulse" style="animation-delay: 0.4s;"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+<!-- Fixed Top Navigation - 60px height -->
+<nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 h-[60px] border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-6 h-full">
+        <div class="flex items-center h-full">
+            <!-- Logo -->
+            <div class="flex-shrink-0">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <div class="w-10 h-10 border-2 border-gray-300 rounded-full flex items-center justify-center hover:border-gray-400 transition-colors">
+                        <span class="text-gray-400 text-sm">Logo</span>
+                    </div>
+                    <span class="hidden sm:block font-semibold text-base text-green-800 tracking-tight">Women In Health Africa</span>
+                </a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden lg:flex items-center space-x-8 ml-auto h-full">
+                <!-- Home -->
+                <a href="index.html" class="text-gray-700 text-sm font-medium hover:text-[#b76614] transition-colors relative group h-full flex items-center px-1">
+                    Home
+                    <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-[#b76614] group-hover:w-10 transition-all duration-300 rounded-full"></span>
+                </a>
+                
+                <!-- About Dropdown -->
+                <div class="relative group h-full flex items-center">
+                    <button class="text-gray-700 text-sm font-medium hover:text-[#b76614] transition-colors flex items-center px-1">
+                        <span>About</span>
+                        <span class="material-icons text-sm ml-1">expand_more</span>
+                    </button>
+                    <div class="absolute top-full left-0 bg-white border border-gray-200 rounded-lg shadow-xl py-2 min-w-[220px] opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-10">
+                        <a href="mission-vision-statement.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#b76614] hover:bg-gray-50 transition-colors border-b border-gray-100">Mission, Vision & Statement</a>
+                        <a href="meet-the-founder.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#b76614] hover:bg-gray-50 transition-colors border-b border-gray-100">Meet the Founder</a>
+                        <a href="meet-the-team.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#b76614] hover:bg-gray-50 transition-colors border-b border-gray-100">Meet the Team</a>
+                        <a href="library.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#b76614] hover:bg-gray-50 transition-colors">Library</a>
+                    </div>
+                </div>
+
+                <!-- Features -->
+                <a href="features.html" class="text-gray-700 text-sm font-medium hover:text-[#b76614] transition-colors relative group h-full flex items-center px-1">
+                    Features
+                    <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-[#b76614] group-hover:w-10 transition-all duration-300 rounded-full"></span>
+                </a>
+                
+                <!-- Initiatives Dropdown -->
+                <div class="relative group h-full flex items-center">
+                    <button class="text-gray-700 text-sm font-medium hover:text-[#b76614] transition-colors flex items-center px-1">
+                        <span>Initiative</span>
+                        <span class="material-icons text-sm ml-1">expand_more</span>
+                    </button>
+                    <div class="absolute top-full left-0 bg-white border border-gray-200 rounded-lg shadow-xl py-2 min-w-[200px] opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-10">
+                        <a href="HermosaMimosa.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#b76614] hover:bg-gray-50 transition-colors">Hermosa Mimosa</a>
+                    </div>
+                </div>
+
+                <!-- Get Involved -->
+                <a href="get-involved.html" class="text-gray-700 text-sm font-medium hover:text-[#b76614] transition-colors relative group h-full flex items-center px-1">
+                    Get Involved
+                    <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-[#b76614] group-hover:w-10 transition-all duration-300 rounded-full"></span>
+                </a>
+                
+                <!-- Donate Button -->
+                <a href="#" data-donate class="text-gray-700 text-sm font-medium hover:text-[#b76614] transition-colors relative group h-full flex items-center px-2 py-1 bg-yellow-300 rounded hover:bg-yellow-400">
+                    <svg class="w-4 h-4 mr-1 inline text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                    <span class="text-gray-800">Donate</span>
+                </a>
+                
+                <!-- Search Bar -->
+                <div class="relative ml-4">
+                    <input type="text" 
+                           id="desktop-search" 
+                           placeholder="Search..." 
+                           class="w-48 px-4 py-2.5 text-sm text-gray-700 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#b76614] focus:border-transparent transition-all duration-200 shadow-sm">
+                    <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Icons - Search icon removed -->
+            <div class="lg:hidden flex items-center ml-auto">
+                <!-- Mobile Menu Button only (no search icon) -->
+                <button class="text-gray-700 hover:text-[#b76614] p-2 rounded-full transition-colors" id="mobile-menu-button" aria-label="Open menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-50 hidden transition-opacity duration-300" id="mobile-menu-overlay">
+    <div class="fixed inset-y-0 right-0 max-w-xs w-full bg-white shadow-xl transform translate-x-full transition-transform duration-300" id="mobile-menu">
+        <div class="flex flex-col h-full">
+            <!-- Mobile Menu Header -->
+            <div class="flex items-center justify-between px-6 py-4 border-b border-gray-200 bg-gray-50">
+                <h2 class="text-lg font-semibold text-gray-900">Menu</h2>
+                <button class="text-gray-500 hover:text-gray-700 p-2 rounded-full" id="close-mobile-menu" aria-label="Close menu">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+
+            <!-- Mobile Search Bar -->
+            <div class="px-6 py-4 border-b border-gray-200">
+                <div class="relative">
+                    <input type="text" 
+                           placeholder="Search..." 
+                           class="w-full px-4 py-2.5 text-sm text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#b76614] focus:border-transparent transition-all duration-200">
+                    <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Links -->
+            <nav class="flex-1 overflow-y-auto px-6 py-4">
+                <div class="space-y-1">
+                    <!-- Home -->
+                    <a href="index.html" class="block py-3 px-3 text-base font-medium text-gray-700 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                        Home
+                    </a>
+
+                    <!-- About Section -->
+                    <div class="mobile-menu-item">
+                        <button class="flex items-center justify-between w-full py-3 px-3 text-base font-medium text-gray-700 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200 mobile-submenu-toggle">
+                            <span class="font-semibold">About</span>
+                            <span class="material-icons transform transition-transform duration-200">expand_more</span>
+                        </button>
+                        <div class="mobile-submenu hidden pl-4 space-y-1 mt-1">
+                            <a href="mission-vision-statement.html" class="block py-2.5 px-3 text-sm text-gray-600 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                                Mission, Vision & Statement
+                            </a>
+                            <a href="meet-the-founder.html" class="block py-2.5 px-3 text-sm text-gray-600 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                                Meet the Founder
+                            </a>
+                            <a href="meet-the-team.html" class="block py-2.5 px-3 text-sm text-gray-600 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                                Meet the Team
+                            </a>
+                            <a href="library.html" class="block py-2.5 px-3 text-sm text-gray-600 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                                Library
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Features -->
+                    <a href="features.html" class="block py-3 px-3 text-base font-medium text-gray-700 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                        Features
+                    </a>
+
+                    <!-- Initiatives Section -->
+                    <div class="mobile-menu-item">
+                        <button class="flex items-center justify-between w-full py-3 px-3 text-base font-medium text-gray-700 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200 mobile-submenu-toggle">
+                            <span class="font-semibold">Initiative</span>
+                            <span class="material-icons transform transition-transform duration-200">expand_more</span>
+                        </button>
+                        <div class="mobile-submenu hidden pl-4 space-y-1 mt-1">
+                            <a href="HermosaMimosa.html" class="block py-2.5 px-3 text-sm text-gray-600 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                                Hermosa Mimosa
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Get Involved -->
+                    <a href="get-involved.html" class="block py-3 px-3 text-base font-medium text-gray-700 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                        Get Involved
+                    </a>
+                    
+                    <!-- Donate -->
+                    <a href="#" data-donate class="block px-3 py-2 text-base font-medium bg-yellow-300 rounded hover:bg-yellow-400">
+                        <svg class="w-4 h-4 mr-1 inline text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                        <span class="text-black">Donate</span>
+                    </a>
+                </div>
+            </nav>
+
+            <!-- Mobile Footer -->
+            <div class="px-6 py-4 border-t border-gray-200">
+                <p class="text-xs text-gray-500 text-center">Women in Health Africa © 2026</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Mobile Search Overlay -->
+<div id="mobile-search-overlay" class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300">
+    <div class="fixed top-0 left-0 right-0 bg-white shadow-lg transform transition-transform duration-300 -translate-y-full" id="mobile-search-panel">
+        <div class="flex items-center justify-between px-4 py-3 border-b border-gray-200">
+            <h2 class="text-lg font-medium text-gray-900">Search</h2>
+            <button class="text-gray-500 hover:text-gray-700 p-2 rounded-full cursor-pointer z-10" id="close-mobile-search" aria-label="Close search">
+                <span class="material-icons">close</span>
+            </button>
+        </div>
+        <div class="p-4">
+            <div class="relative">
+                <input type="search" 
+                    id="mobile-search-input" 
+                    class="feature-content w-full px-4 py-3 pl-10 pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#b76614] focus:border-transparent"
+                    placeholder="Search across the website..."
+                    aria-label="Search">
+                <span class="material-icons absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">search</span>
+            </div>
+            <div id="mobile-search-results" class="mt-4 max-h-[60vh] overflow-y-auto">
+                <!-- Mobile search results will be populated here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Search Overlay -->
+<div id="search-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden">
+    <div class="container mx-auto px-4 pt-20">
+        <div class="bg-white rounded-lg shadow-xl max-w-3xl mx-auto">
+            <div class="p-4 border-b border-gray-200">
+                <div class="relative">
+                    <input type="search" 
+                        id="main-search" 
+                        class="feature-content w-full px-4 py-2 pl-10 pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#b76614] focus:border-transparent"
+                        placeholder="Search across the website..."
+                        aria-label="Search">
+                    <span class="material-icons absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">search</span>
+                    <button id="close-search" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                        <span class="material-icons">close</span>
+                    </button>
+                </div>
+            </div>
+            <div id="search-results" class="max-h-[60vh] overflow-y-auto p-4">
+                <!-- Search results will be populated here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Main Content -->
+<style>
+  .feature-card {
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+  }
+  
+  .feature-card .feature-content {
+    padding: 1.5rem;
+  }
+  
+  .feature-card h3 {
+    color: #b76614;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  
+  .feature-card p {
+    color: #4B5563;
+    line-height: 1.6;
+  }
+  
+  .gradient-header {
+    background: linear-gradient(135deg, #b76614 0%, #e6b88a 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .gradient-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 10c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2v4c0 1.1-.9 2-2 2h-4c-1.1 0-2-.9-2-2v-4zm-36 0c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-4zm24 24c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-4zm-24 0c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-4zm24 24c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-4zm-24 0c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-4z' fill='rgba(255,255,255,0.05)'/%3E%3C/svg%3E");
+    opacity: 0.6;
+  }
+  
+  .gradient-header .container {
+    position: relative;
+    z-index: 1;
+  }
+</style>
+
+<main>
+  <!-- Hero Section with Gradient Overlay -->
+  <div class="gradient-header py-20 text-white relative">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Our Features</h1>
+      <div class="w-24 h-1.5 bg-white/70 mx-auto mb-8 rounded-full"></div>
+      <p class="text-white/90 max-w-2xl mx-auto text-lg">Discover the tools and resources designed to empower women in healthcare across Africa</p>
+    </div>
+  </div>
+
+  <div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden" style='font-family: "Montserrat", sans-serif;'>
+    <div class="layout-container flex h-full grow flex-col">
+      <div class="px-4 sm:px-10 md:px-20 flex flex-1 justify-center py-12">
+        <div class="layout-content-container flex flex-col max-w-6xl w-full">
+          <div class="mb-12 text-center">
+            <h2 class="text-3xl font-bold text-[#b76614] mb-4">Weekly Spotlight</h2>
+            <div class="w-20 h-1 bg-[#b76614] mx-auto"></div>
+          </div>
+          <div class="p-6 @container">
+            <div class="flex flex-col items-stretch justify-start rounded-xl @xl:flex-row @xl:items-start gap-6 bg-white shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer overflow-hidden" id="spotlight">
+              <div
+                class="feature-content w-full max-w-[400px] bg-center bg-no-repeat aspect-square bg-cover rounded-xl mx-auto @xl:mx-0 @xl:rounded-r-none"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD_RRdrQ4Vo3b6MuYfPxrZsJXlLNoqF1-KjVs9iDvNOokmXznWJ3n5UJ6q0YFVFa0UpqxOZrjK-rZ-VssNC4po0wokFhjbuJVkIMLtRXqOQNzf2oR7fkDnRkjsIv0osvYdjoAF5L4OTQLESi0QPJW6OEaGvw6EL4tcdDvx32zx17yuxQcZ8X0Ym8CnRzTJuVHjoRFTQBOD0pg99_RsCJ57JX7Qh3uPhnTFD2P0HtiHTWC3CnQBF2uIzoGkL6kB01Rzf7MdWNm47TE-_");'
+              ></div>
+              <div class="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-3 p-6 @xl:pr-8">
+                <div class="flex justify-between items-start">
+                  <h2 class="text-[#8B6F47] text-lg font-bold leading-tight tracking-[-0.015em]">Sophia Rossi: Champion of Change</h2>
+                  <span class="text-[#b76614] text-sm font-medium bg-[#f8f4f0] px-3 py-1 rounded-full">December 15, 2026</span>
+                </div>
+                <div class="flex flex-col gap-4">
+                  <p class="text-[#60758a] text-base font-normal leading-normal">
+                    This week, we celebrate Sophia Rossi, a visionary leader in sustainable technology. Her innovative solutions have significantly impacted environmental
+                    conservation, earning her numerous accolades and inspiring a new generation of innovators.
+                  </p>
+                  <div class="spotlight-content">
+                    <p class="text-[#60758a] text-base font-normal leading-normal mb-3">
+                      Sophia's groundbreaking work in renewable energy has led to the development of affordable solar solutions for rural communities. Her latest project focuses on training women in technical skills to maintain and repair solar panels, creating sustainable employment opportunities while addressing energy poverty.
+                    </p>
+                    <p class="text-[#60758a] text-base font-normal leading-normal">
+                      In recognition of her contributions, Sophia was recently awarded the Global Sustainability Leadership Award. She continues to advocate for gender equality in STEM fields, mentoring young women pursuing careers in environmental science and technology.
+                    </p>
+                  </div>
+                  <p class="spotlight-text text-[var(--primary-color)] font-medium cursor-pointer hover:underline inline-flex items-center">
+                    Click for more information <i class="fas fa-chevron-down ml-1"></i>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h2 class="text-[#8B6F47] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Past Features</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-4">
+            <!-- Feature Card 1 -->
+            <div class="feature-card flex flex-col bg-white rounded-xl shadow-md hover:shadow-lg cursor-pointer border border-gray-100">
+              <div
+                class="feature-content w-full bg-center bg-no-repeat aspect-video bg-cover rounded-t-xl"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBieQU2qlu031SKYJGo9kRR0HTUU5e0akw0Kc9rkFnDDJH8DGZ4bdrgJwRbApoCOOl2fQkU7ySZTPTHrLnDk9trdnX-J1miCADJ6SMLeyieWqRe-TfA4gA8SnT6ppb63k_VgighoAL113EwHa_Qm6aQaDi2ngYOqnMOTZnyc9avkdyah-cytj0t_ua23pB3UP7vqosaFJpKJi2qBoxqyZrt68JGI48TSdnk_3vGl1Z9Xn9LJSMepgfPE6GaXSPOfxAx5iHHnMwSRKXt");'
+              ></div>
+              <div class="p-5">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="text-[#8B6F47] text-lg font-semibold">Ethan Harper</h3>
+                  <span class="text-[#b76614] text-xs font-medium bg-[#f8f4f0] px-2 py-1 rounded-full">December 8, 2026</span>
+                </div>
+                <p class="text-[#60758a] text-sm mt-1">Healthcare Innovation Leader</p>
+                <div class="feature-info" style="max-height: 0; overflow: hidden; transition: all 0.3s ease-in-out; opacity: 0;">
+                  <p class="text-[#60758a] text-sm mt-3">Ethan Harper revolutionized rural healthcare delivery through his mobile clinic initiative, bringing essential medical services to underserved communities across East Africa.</p>
+                  <p class="text-[#60758a] text-sm mt-2">His work has improved healthcare access for over 50,000 individuals and inspired similar programs in neighboring regions.</p>
+                  <p class="text-[#60758a] text-sm mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  <p class="text-[#60758a] text-sm mt-2">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="feature-more">
+                  Click for more information <i class="fas fa-chevron-down"></i>
+                </div>
+              </div>
+            </div>
+            <!-- Feature Card 2 -->
+            <div class="feature-card flex flex-col bg-white rounded-xl shadow-md hover:shadow-lg cursor-pointer border border-gray-100">
+              <div
+                class="feature-content w-full bg-center bg-no-repeat aspect-video bg-cover rounded-t-xl"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB--PC640_rPrAXBcZQime6W5CbgmlARg4eVxDTSi0RgvKRhoN6mjRLWOaLE_RAfckkNK8Gg83ex_2cnbgd-tU87ARU4_RQL8kPI_axgEY6RySHJx78W4NAecKIBrSXEBY0S8LtGVUQTEvHoJwXR9y15q43dUf_p1Hf3W3CxUb7Qgt3oK-6EqYSqoFiOyDlWTe_oGf7rBTikgsDfFGD6ravjXLqQW3eLzG4VByD2zfR20qZQUdvir-L8pxOzDJR9geg_AY_znHNnKCi");'
+              ></div>
+              <div class="p-5">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="text-[#8B6F47] text-lg font-semibold">Olivia Turner</h3>
+                  <span class="text-[#b76614] text-xs font-medium bg-[#f8f4f0] px-2 py-1 rounded-full">December 1, 2026</span>
+                </div>
+                <p class="text-[#60758a] text-sm mt-1">Mental Health Advocate</p>
+                <div class="feature-info" style="max-height: 0; overflow: hidden; transition: all 0.3s ease-in-out; opacity: 0;">
+                  <p class="text-[#60758a] text-sm mt-3">Olivia Turner has been a leading voice in mental health awareness, establishing support networks and counseling services for women in urban centers.</p>
+                  <p class="text-[#60758a] text-sm mt-2">Her initiatives have helped reduce the stigma around mental health and provided critical support to thousands of women across the continent.</p>
+                  <p class="text-[#60758a] text-sm mt-2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                  <p class="text-[#60758a] text-sm mt-2">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                </div>
+                <div class="feature-more">
+                  Click for more information <i class="fas fa-chevron-down"></i>
+                </div>
+              </div>
+            </div>
+            <!-- Feature Card 3 -->
+            <div class="feature-card flex flex-col bg-white rounded-xl shadow-md hover:shadow-lg cursor-pointer border border-gray-100">
+              <div
+                class="feature-content w-full bg-center bg-no-repeat aspect-video bg-cover rounded-t-xl"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA78KcVK-KC6dQy0D8f8EKosAOOfVLRG6aZ0xE4J90pUA02EWavHDezFAW3HSxT7AC7dK6xbqrff5a8RXxbnvslffdirCxDA4yXJtLr6imTRxMDkBxWEAaaDEq_oleEjDuatBaBaZp7cvDLnRsgundefPylAXTfASKoRWObzud3o8EJr0NhiZ_fJbwniZyrUSBgaxsP3XVAVWyY9o-3IHsvO_L12igbzK-VyRDi5SQtInWKwOdvgS5QypQ1XvbyufOlNOSB3UGjZK-x");'
+              ></div>
+              <div class="p-5">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="text-[#8B6F47] text-lg font-semibold">Daniel Kim</h3>
+                  <span class="text-[#b76614] text-xs font-medium bg-[#f8f4f0] px-2 py-1 rounded-full">November 24, 2026</span>
+                </div>
+                <p class="text-[#60758a] text-sm mt-1">Medical Technology Pioneer</p>
+                <div class="feature-info" style="max-height: 0; overflow: hidden; transition: all 0.3s ease-in-out; opacity: 0;">
+                  <p class="text-[#60758a] text-sm mt-3">Daniel Kim's work in developing affordable diagnostic tools has transformed healthcare delivery in resource-limited settings across Africa.</p>
+                  <p class="text-[#60758a] text-sm mt-2">His portable diagnostic devices have been deployed in over 100 clinics, significantly improving early detection of diseases.</p>
+                  <p class="text-[#60758a] text-sm mt-2">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+                  <p class="text-[#60758a] text-sm mt-2">Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
+                </div>
+                <div class="feature-more">
+                  Click for more information <i class="fas fa-chevron-down"></i>
+                </div>
+              </div>
+            </div>
+            <!-- Feature Card 4 -->
+            <div class="feature-card flex flex-col bg-white rounded-xl shadow-md hover:shadow-lg cursor-pointer border border-gray-100">
+              <div
+                class="feature-content w-full bg-center bg-no-repeat aspect-video bg-cover rounded-t-xl"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAqK0xjPG10JGDHm1YNnnvBK3yh-DJAyp8-n0zKSMpCcyw34uh_rZjrihtoE04aS8ZcrSvoNBfq8IMeDC_jEnC2C1Lh2WKcsC57KPTTfYNQDLWg7GBpHMe3RyGV2eKN8Nbx1EhBTwbGB0FhPvwU6LB9eWBlGCPeu1SwV5LEMqUvr7BnMnRKfgTLCFxhUpnv-YNuvpWA8yeL14UlcBPgVOQ7EnZ15kyM0WZ2b6LB7vTGalsh-Y129_IzztwKj9nt3LLUNgVMiSI0rhox");'
+              ></div>
+              <div class="p-5">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="text-[#8B6F47] text-lg font-semibold">Mia Zhang</h3>
+                  <span class="text-[#b76614] text-xs font-medium bg-[#f8f4f0] px-2 py-1 rounded-full">November 17, 2026</span>
+                </div>
+                <p class="text-[#60758a] text-sm mt-1">Public Health Strategist</p>
+                <div class="feature-info" style="max-height: 0; overflow: hidden; transition: all 0.3s ease-in-out; opacity: 0;">
+                  <p class="text-[#60758a] text-sm mt-3">Mia Zhang's research in disease prevention has led to more effective public health strategies in combating infectious diseases across Africa.</p>
+                  <p class="text-[#60758a] text-sm mt-2">Her work has been instrumental in developing community-based health programs that have reached over 200,000 people in rural areas.</p>
+                  <p class="text-[#60758a] text-sm mt-2">Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.</p>
+                  <p class="text-[#60758a] text-sm mt-2">Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+                </div>
+                <div class="feature-more">
+                  Click for more information <i class="fas fa-chevron-down"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<!-- New Footer -->
+<footer class="bg-[var(--footer-bg)] text-[var(--footer-text)] py-12">
+    <div class="container mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            <!-- About Section -->
+            <div class="flex flex-col items-start">
+                <h3 class="text-lg font-semibold mb-4">About Us</h3>
+                <p class="text-sm mb-6 max-w-md">Empowering women in health across Africa through education, connection, and support.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-[var(--footer-text)] hover:text-[#1877f2] transition-colors duration-200" target="_blank">
+                        <i class="fab fa-facebook text-xl"></i>
+                    </a>
+                    <a href="http://www.youtube.com/@Dr_Kiki" class="text-[var(--footer-text)] hover:text-[#ff0000] transition-colors duration-200" target="_blank">
+                        <i class="fab fa-youtube text-xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/hermosa_mimosa_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="text-[var(--footer-text)] hover:text-[#e1306c] transition-colors duration-200" target="_blank">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-[var(--footer-text)] hover:text-[#000000] group transition-colors duration-200" target="_blank">
+                        <i class="fab fa-tiktok text-xl group-hover:text-[#00f2ea]"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Newsletter Section -->
+            <div class="flex flex-col items-start">
+                <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
+                <div class="w-full max-w-md">
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <input type="email" id="footer-newsletter-email" placeholder="Enter your email" class="flex-1 px-4 py-2 rounded-md border border-[var(--accent-color)] bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)]" required>
+                        <button type="button" onclick="validateFooterNewsletterForm(event)" class="px-6 py-2 bg-[var(--primary-color)] text-white rounded-md hover:bg-[var(--text-secondary)] transition-colors duration-200">
+                            Subscribe
+                        </button>
+                    </div>
+                    <p class="text-sm mt-3">Stay updated with our latest news and updates</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="border-t border-[var(--accent-color)] mt-12 pt-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm mb-4 md:mb-0">&copy; 2026 Women in Health Africa. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="privacy-policy.html" class="text-sm hover:underline">Privacy Policy</a>
+                    <a href="terms-of-service.html" class="text-sm hover:underline">Terms of Service</a>
+                    <a href="cookie-policy.html" class="text-sm hover:underline">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Add Swiper JS before closing body tag -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- JavaScript for Mobile Menu -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function openMenu() {
+            mobileMenuOverlay.classList.remove('hidden');
+            setTimeout(() => {
+                mobileMenu.classList.remove('translate-x-full');
+            }, 10);
+        }
+
+        function closeMenu() {
+            mobileMenu.classList.add('translate-x-full');
+            setTimeout(() => {
+                mobileMenuOverlay.classList.add('hidden');
+            }, 300);
+        }
+
+        mobileMenuButton.addEventListener('click', openMenu);
+        closeMobileMenuButton.addEventListener('click', closeMenu);
+        mobileMenuOverlay.addEventListener('click', function(event) {
+            if (event.target === mobileMenuOverlay) {
+                closeMenu();
+            }
+        });
+
+        // Mobile submenu toggles
+        const submenuToggles = document.querySelectorAll('.mobile-submenu-toggle');
+        submenuToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const submenu = toggle.nextElementSibling;
+                const icon = toggle.querySelector('.material-icons');
+                
+                submenu.classList.toggle('hidden');
+                if (submenu.classList.contains('hidden')) {
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+    });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    function openMenu() {
+      mobileMenuOverlay.classList.remove('hidden');
+      mobileMenu.classList.add('active');
+    }
+
+    function closeMenu() {
+      mobileMenuOverlay.classList.add('hidden');
+      mobileMenu.classList.remove('active');
+    }
+
+    
+    // Back to Top Button
+    const backToTopButton = document.getElementById('backToTop');
+    
+    if (backToTopButton) {
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    mobileMenuButton.addEventListener('click', openMenu);
+    closeMobileMenuButton.addEventListener('click', closeMenu);
+    mobileMenuOverlay.addEventListener('click', function(event) {
+        if (event.target === mobileMenuOverlay) {
+            closeMenu();
+        }
+    });
+
+    // Dropdown hover functionality for desktop navigation
+    const dropdownGroups = document.querySelectorAll('.dropdown-group');
+    dropdownGroups.forEach(group => {
+        const button = group.querySelector('button');
+        const dropdownMenu = group.querySelector('.dropdown-menu');
+
+        if (button && dropdownMenu) {
+            button.addEventListener('mouseenter', function() {
+                dropdownMenu.style.opacity = '1';
+                dropdownMenu.style.visibility = 'visible';
+                dropdownMenu.style.transform = 'translateY(0)';
+            });
+
+            group.addEventListener('mouseleave', function() {
+                dropdownMenu.style.opacity = '0';
+                dropdownMenu.style.visibility = 'hidden';
+                dropdownMenu.style.transform = 'translateY(-10px)';
+            });
+        }
+    });
+
+    // Submenu toggles for mobile navigation
+    const submenuToggles = document.querySelectorAll('.mobile-submenu-toggle');
+    submenuToggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const submenu = toggle.nextElementSibling;
+            const icon = toggle.querySelector('.material-icons');
+
+            if (submenu) {
+                submenu.classList.toggle('hidden');
+                if (submenu.classList.contains('hidden')) {
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            }
+        });
+    });
+
+    // Spotlight toggle functionality
+    const spotlightElement = document.getElementById('spotlight');
+    const spotlightText = document.querySelector('.spotlight-text');
+    const spotlightContent = document.querySelector('.spotlight-content');
+
+    if (spotlightText && spotlightContent) {
+        spotlightText.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // Toggle the visibility of spotlight content
+            if (spotlightContent.style.display === 'none') {
+                spotlightContent.style.display = 'block';
+                spotlightText.innerHTML = 'Click to collapse <i class="fas fa-chevron-up"></i>';
+            } else {
+                spotlightContent.style.display = 'none';
+                spotlightText.innerHTML = 'Click for more information <i class="fas fa-chevron-down"></i>';
+            }
+        });
+    }
+
+    // Feature card toggle functionality
+    const featureMoreElements = document.querySelectorAll('.feature-more');
+    featureMoreElements.forEach(moreElement => {
+        moreElement.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // Find the corresponding feature-info element within the same card
+            const featureCard = this.closest('.feature-card');
+            const featureInfo = featureCard.querySelector('.feature-info');
+            const icon = this.querySelector('i');
+
+            if (featureInfo) {
+                // Toggle visibility
+                if (featureInfo.style.maxHeight === '0px' || featureInfo.style.maxHeight === '0') {
+                    featureInfo.style.maxHeight = '500px';
+                    featureInfo.style.opacity = '1';
+                    this.innerHTML = 'Click to collapse <i class="fas fa-chevron-up"></i>';
+                } else {
+                    featureInfo.style.maxHeight = '0';
+                    featureInfo.style.opacity = '0';
+                    this.innerHTML = 'Click for more information <i class="fas fa-chevron-down"></i>';
+                }
+            }
+        });
+    });
+});
+</script>
+</div>
+
+    <script src="js/mobile-menu.js"></script>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- Universal Confirmation Script -->
+    <script src="js/universal-confirmations.js"></script>
+
+    <!-- Loading Animation Script -->
+    <script>
+      // Function to hide loading screen
+      function hideLoadingScreen() {
+          const loadingScreen = document.getElementById('loading-screen');
+          const mainContent = document.querySelector('.main-content');
+          
+          if (loadingScreen) {
+              loadingScreen.classList.remove('loading-fade-in');
+              loadingScreen.classList.add('loading-fade-out');
+              
+              setTimeout(() => {
+                  if (mainContent) {
+                      mainContent.classList.add('loaded');
+                  }
+                  
+                  setTimeout(() => {
+                      if (loadingScreen) {
+                          loadingScreen.style.display = 'none';
+                      }
+                  }, 500);
+              }, 200);
+          }
+      }
+      
+      // Start loading animation on DOM content loaded
+      document.addEventListener('DOMContentLoaded', function() {
+          const loadingScreen = document.getElementById('loading-screen');
+          
+          if (loadingScreen) {
+              loadingScreen.classList.add('loading-fade-in');
+          }
+          
+          // Hide loading screen when page is fully loaded
+          window.addEventListener('load', hideLoadingScreen);
+          
+          // Fallback: hide loading screen after 2 seconds if load event doesn't fire
+          setTimeout(hideLoadingScreen, 2000);
+      });
+    </script>
+    
+</body>
+</html>
+</script>
+    <script src="js/mobile-menu.js"></script>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- Universal Confirmation Script -->
+    <script src="js/universal-confirmations.js"></script>
+    
+    <!-- Footer Newsletter Validation Script -->
+    <script>
+        function validateFooterNewsletterForm(event) {
+            // Prevent default behavior and stop propagation
+            event.preventDefault();
+            event.stopPropagation();
+            
+            const emailInput = document.getElementById('footer-newsletter-email');
+            const email = emailInput.value.trim();
+            
+            // Clear previous error messages
+            clearFieldError(emailInput);
+            
+            let isValid = true;
+            
+            // Validate email
+            if (email === '') {
+                showFieldError(emailInput, 'Email is required');
+                isValid = false;
+            } else if (!isValidEmail(email)) {
+                showFieldError(emailInput, 'Please enter a valid email address');
+                isValid = false;
+            }
+            
+            // If validation passes, show confirmation
+            if (isValid) {
+                // Trigger the universal confirmation
+                if (window.universalConfirmation) {
+                    window.universalConfirmation.showConfirmationPopup(
+                        'Subscription Successful!',
+                        'Thank you for subscribing to our newsletter. You\'ll receive our latest updates in your inbox.',
+                        'email',
+                        'blue'
+                    );
+                }
+                
+                // Reset form after showing confirmation
+                setTimeout(() => {
+                    emailInput.value = '';
+                }, 1000);
+            }
+            
+            return false;
+        }
+        
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+        
+        function showFieldError(field, message) {
+            clearFieldError(field);
+            
+            // Add red border to indicate error
+            field.classList.add('border-red-500');
+            
+            // Set error message as placeholder to show inside the input
+            field.placeholder = message;
+            field.classList.add('text-red-500');
+            
+            // Clear placeholder on focus
+            field.addEventListener('focus', function() {
+                if (field.placeholder === message) {
+                    field.placeholder = 'Enter your email';
+                    field.classList.remove('text-red-500');
+                }
+            }, { once: true });
+        }
+        
+        function clearFieldError(field) {
+            field.classList.remove('border-red-500');
+            field.classList.remove('text-red-500');
+            
+            // Reset placeholder to default
+            if (field.placeholder === 'Email is required' || field.placeholder === 'Please enter a valid email address') {
+                field.placeholder = 'Enter your email';
+            }
+            
+            // Remove any external error divs (for backwards compatibility)
+            const errorDiv = field.parentNode.querySelector('.field-error');
+            if (errorDiv) {
+                errorDiv.remove();
+            }
+        }
+    </script>
+    
+    <script src="js/newsletter.js"></script>
+    
+    
+    <script>
+        // Mobile submenu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all mobile submenu toggle buttons
+            const submenuToggles = document.querySelectorAll('.mobile-submenu-toggle');
+            
+            // Add click event listeners to each toggle button
+            submenuToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    // Toggle the 'active' class on the parent menu item
+                    const menuItem = this.closest('.mobile-menu-item');
+                    menuItem.classList.toggle('active');
+                    
+                    // Toggle the submenu visibility
+                    const submenu = this.nextElementSibling;
+                    submenu.classList.toggle('hidden');
+                    
+                    // Rotate the arrow icon
+                    const arrow = this.querySelector('.material-icons');
+                    if (arrow) {
+                        arrow.classList.toggle('rotate-180');
+                    }
+                });
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileMenuLinks = document.querySelectorAll('#mobile-menu a:not([data-donate])');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    closeMenu();
+                });
+            });
+        });
+    </script>
+
+    <!-- Donation Popup -->
+    <div id="donation-popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-6 max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-gray-900">Support Our Cause</h3>
+                <button id="close-donation-popup" class="text-gray-500 hover:text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            <p class="text-gray-600 mb-6">Your donation helps us continue our mission. Thank you for your support!</p>
+            <div class="space-y-4">
+                <button class="w-full bg-yellow-300 hover:bg-yellow-400 text-gray-800 font-bold py-3 px-4 rounded transition duration-200">
+                    $25
+                </button>
+                <button class="w-full bg-yellow-300 hover:bg-yellow-400 text-gray-800 font-bold py-3 px-4 rounded transition duration-200">
+                    $50
+                </button>
+                <button class="w-full bg-yellow-300 hover:bg-yellow-400 text-gray-800 font-bold py-3 px-4 rounded transition duration-200">
+                    $100
+                </button>
+                <div class="relative mt-2">
+                    <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">$</span>
+                    <input type="number" placeholder="Other amount" class="w-full pl-8 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                </div>
+                <button class="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-4 rounded transition duration-200 mt-4">
+                    Donate Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Donation popup functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show popup
+            document.querySelectorAll('[data-donate]').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.getElementById('donation-popup').classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            // Close popup
+            document.getElementById('close-donation-popup').addEventListener('click', function() {
+                document.getElementById('donation-popup').classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+
+            // Close when clicking outside
+            document.getElementById('donation-popup').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+    </script>
+    
+    
+    <script src="js/mobile-menu-fix.js"></script>
+</body>
+</html>

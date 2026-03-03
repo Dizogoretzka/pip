@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Women in Health Africa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+
+        /* Mobile menu animations */
+        .mobile-submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .mobile-menu-item.active .mobile-submenu {
+            max-height: 1000px; /* Adjust based on your content */
+            transition: max-height 0.5s ease-in;
+        }
+        
+        .rotate-180 {
+            transform: rotate(180deg);
+        }
+        
+        .transition-transform {
+            transition: transform 0.2s ease-in-out;
+        }
+
+        :root {
+            --primary-color: #b76614;
+            --background-color: #f8f4f0;
+            --text-primary: #3e2723;
+            --text-secondary: #795548;
+            --accent-color: #d7ccc8;
+            --footer-bg: #C4B5A5;
+            --footer-text: #3e2723;
+            --nav-bg: #EAE0D5;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            padding-top: 60px; /* Adjusted for 60px nav */
+        }
+        .gradient-header {
+            background: linear-gradient(135deg, var(--primary-color), #e6b88a);
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            z-index: 40;
+            display: none;
+        }
+        
+        .back-to-top:hover {
+            background-color: #9a5514;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .back-to-top:active {
+            transform: translateY(0);
+        }
+
+        /* Loading Screen Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+        @keyframes slideUp {
+            from { 
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to { 
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .loading-fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .loading-fade-out {
+            animation: fadeOut 0.5s ease-in-out forwards;
+        }
+
+        .loading-slide-up {
+            animation: slideUp 0.6s ease-out;
+        }
+
+        /* Hide main content initially */
+        .main-content {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .main-content.loaded {
+            opacity: 1;
+        }
+
+        /* Enhanced Loading Animation */
+        #loading-screen {
+            background: linear-gradient(135deg, #f8f4f0 0%, #e6b88a 100%);
+        }
+
+        .loading-logo {
+            animation: logoPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes logoPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .loading-text {
+            animation: textSlide 1s ease-out;
+        }
+
+        @keyframes textSlide {
+            from { 
+                transform: translateY(10px);
+                opacity: 0;
+            }
+            to { 
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .loading-dots {
+            animation: dotsBounce 1.5s ease-in-out infinite;
+        }
+
+        @keyframes dotsBounce {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body class="bg-white">
+<!-- Loading Animation -->
+<div id="loading-screen" class="fixed inset-0 z-[9999] flex items-center justify-center">
+    <div class="text-center">
+        <div class="relative w-24 h-24 mx-auto mb-4 loading-logo">
+            <!-- Main rotating circle -->
+            <div class="absolute inset-0 border-4 border-[#b76614] border-t-transparent rounded-full animate-spin"></div>
+            <!-- Center logo placeholder -->
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
+                    <span class="text-[#b76614] font-bold text-sm">WIHA</span>
+                </div>
+            </div>
+        </div>
+        <div class="text-[#3e2723] font-medium mb-2 loading-text">Women in Health Africa</div>
+        <!-- Progress dots -->
+        <div class="flex justify-center space-x-2 mt-4 loading-dots">
+            <div class="w-2 h-2 bg-[#b76614] rounded-full animate-pulse"></div>
+            <div class="w-2 h-2 bg-[#b76614] rounded-full animate-pulse" style="animation-delay: 0.2s;"></div>
+            <div class="w-2 h-2 bg-[#b76614] rounded-full animate-pulse" style="animation-delay: 0.4s;"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+<!-- Fixed Top Navigation - 60px height -->
+<nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 h-[60px] border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-6 h-full">
+        <div class="flex items-center h-full">
+            <!-- Logo -->
+            <div class="flex-shrink-0">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <div class="w-10 h-10 border-2 border-gray-300 rounded-full flex items-center justify-center hover:border-gray-400 transition-colors">
+                        <span class="text-gray-400 text-sm">Logo</span>
+                    </div>
+                    <span class="hidden sm:block font-semibold text-base text-green-800 tracking-tight">Women In Health Africa</span>
+                </a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden lg:flex items-center space-x-8 ml-auto h-full">
+                <!-- Home -->
+                <a href="index.html" class="text-gray-700 text-sm font-medium hover:text-[#b76614] transition-colors relative group h-full flex items-center px-1">
+                    Home
+                    <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-[#b76614] group-hover:w-10 transition-all duration-300 rounded-full"></span>
+                </a>
+                
+                <!-- About Dropdown -->
+                <div class="relative group h-full flex items-center">
+                    <button class="text-gray-700 text-sm font-medium hover:text-[#b76614] transition-colors flex items-center px-1">
+                        <span>About</span>
+                        <span class="material-icons text-sm ml-1">expand_more</span>
+                    </button>
+                    <div class="absolute top-full left-0 bg-white border border-gray-200 rounded-lg shadow-xl py-2 min-w-[220px] opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-10">
+                        <a href="mission-vision-statement.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#b76614] hover:bg-gray-50 transition-colors border-b border-gray-100">Mission, Vision & Statement</a>
+                        <a href="meet-the-founder.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#b76614] hover:bg-gray-50 transition-colors border-b border-gray-100">Meet the Founder</a>
+                        <a href="meet-the-team.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#b76614] hover:bg-gray-50 transition-colors border-b border-gray-100">Meet the Team</a>
+                        <a href="library.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#b76614] hover:bg-gray-50 transition-colors">Library</a>
+                    </div>
+                </div>
+
+                <!-- Features -->
+                <a href="features.html" class="text-gray-700 text-sm font-medium hover:text-[#b76614] transition-colors relative group h-full flex items-center px-1">
+                    Features
+                    <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-[#b76614] group-hover:w-10 transition-all duration-300 rounded-full"></span>
+                </a>
+                
+                <!-- Initiatives Dropdown -->
+                <div class="relative group h-full flex items-center">
+                    <button class="text-gray-700 text-sm font-medium hover:text-[#b76614] transition-colors flex items-center px-1">
+                        <span>Initiative</span>
+                        <span class="material-icons text-sm ml-1">expand_more</span>
+                    </button>
+                    <div class="absolute top-full left-0 bg-white border border-gray-200 rounded-lg shadow-xl py-2 min-w-[200px] opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-10">
+                        <a href="HermosaMimosa.html" class="block px-4 py-2.5 text-sm text-gray-700 hover:text-[#b76614] hover:bg-gray-50 transition-colors">Hermosa Mimosa</a>
+                    </div>
+                </div>
+
+                <!-- Get Involved -->
+                <a href="get-involved.html" class="text-gray-700 text-sm font-medium hover:text-[#b76614] transition-colors relative group h-full flex items-center px-1">
+                    Get Involved
+                    <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-[#b76614] group-hover:w-10 transition-all duration-300 rounded-full"></span>
+                </a>
+                
+                <!-- Donate Button -->
+                <a href="#" data-donate class="text-gray-700 text-sm font-medium hover:text-[#b76614] transition-colors relative group h-full flex items-center px-2 py-1 bg-yellow-300 rounded hover:bg-yellow-400">
+                    <svg class="w-4 h-4 mr-1 inline text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                    <span class="text-gray-800">Donate</span>
+                </a>
+                
+                <!-- Search Bar -->
+                <div class="relative ml-4">
+                    <input type="text" 
+                           id="desktop-search" 
+                           placeholder="Search..." 
+                           class="w-48 px-4 py-2.5 text-sm text-gray-700 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#b76614] focus:border-transparent transition-all duration-200 shadow-sm">
+                    <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Icons - Search icon removed -->
+            <div class="lg:hidden flex items-center ml-auto">
+                <!-- Mobile Menu Button only (no search icon) -->
+                <button class="text-gray-700 hover:text-[#b76614] p-2 rounded-full transition-colors" id="mobile-menu-button" aria-label="Open menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-50 hidden transition-opacity duration-300" id="mobile-menu-overlay">
+    <div class="fixed inset-y-0 right-0 max-w-xs w-full bg-white shadow-xl transform translate-x-full transition-transform duration-300" id="mobile-menu">
+        <div class="flex flex-col h-full">
+            <!-- Mobile Menu Header -->
+            <div class="flex items-center justify-between px-6 py-4 border-b border-gray-200 bg-gray-50">
+                <h2 class="text-lg font-semibold text-gray-900">Menu</h2>
+                <button class="text-gray-500 hover:text-gray-700 p-2 rounded-full" id="close-mobile-menu" aria-label="Close menu">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+
+            <!-- Mobile Search Bar -->
+            <div class="px-6 py-4 border-b border-gray-200">
+                <div class="relative">
+                    <input type="text" 
+                           placeholder="Search..." 
+                           class="w-full px-4 py-2.5 text-sm text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#b76614] focus:border-transparent transition-all duration-200">
+                    <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Links -->
+            <nav class="flex-1 overflow-y-auto px-6 py-4">
+                <div class="space-y-1">
+                    <!-- Home -->
+                    <a href="index.html" class="block py-3 px-3 text-base font-medium text-gray-700 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                        Home
+                    </a>
+
+                    <!-- About Section -->
+                    <div class="mobile-menu-item">
+                        <button class="flex items-center justify-between w-full py-3 px-3 text-base font-medium text-gray-700 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200 mobile-submenu-toggle">
+                            <span class="font-semibold">About</span>
+                            <span class="material-icons transform transition-transform duration-200">expand_more</span>
+                        </button>
+                        <div class="mobile-submenu hidden pl-4 space-y-1 mt-1">
+                            <a href="mission-vision-statement.html" class="block py-2.5 px-3 text-sm text-gray-600 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                                Mission, Vision & Statement
+                            </a>
+                            <a href="meet-the-founder.html" class="block py-2.5 px-3 text-sm text-gray-600 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                                Meet the Founder
+                            </a>
+                            <a href="meet-the-team.html" class="block py-2.5 px-3 text-sm text-gray-600 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                                Meet the Team
+                            </a>
+                            <a href="library.html" class="block py-2.5 px-3 text-sm text-gray-600 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                                Library
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Features -->
+                    <a href="features.html" class="block py-3 px-3 text-base font-medium text-gray-700 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                        Features
+                    </a>
+
+                    <!-- Initiatives Section -->
+                    <div class="mobile-menu-item">
+                        <button class="flex items-center justify-between w-full py-3 px-3 text-base font-medium text-gray-700 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200 mobile-submenu-toggle">
+                            <span class="font-semibold">Initiative</span>
+                            <span class="material-icons transform transition-transform duration-200">expand_more</span>
+                        </button>
+                        <div class="mobile-submenu hidden pl-4 space-y-1 mt-1">
+                            <a href="HermosaMimosa.html" class="block py-2.5 px-3 text-sm text-gray-600 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                                Hermosa Mimosa
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Get Involved -->
+                    <a href="get-involved.html" class="block py-3 px-3 text-base font-medium text-gray-700 hover:text-[#b76614] hover:bg-gray-50 rounded-lg transition duration-200">
+                        Get Involved
+                    </a>
+                    
+                    <!-- Donate -->
+                    <a href="#" data-donate class="block px-3 py-2 text-base font-medium bg-yellow-300 rounded hover:bg-yellow-400">
+                        <svg class="w-4 h-4 mr-1 inline text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                        <span class="text-black">Donate</span>
+                    </a>
+                </div>
+            </nav>
+
+            <!-- Mobile Footer -->
+            <div class="px-6 py-4 border-t border-gray-200">
+                <p class="text-xs text-gray-500 text-center">Women in Health Africa © 2026</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Header -->
+    <header class="gradient-header py-16 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Terms of Service</h1>
+            <p class="text-xl">Last Updated: November 27, 2026</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-16 max-w-4xl">
+        <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="prose max-w-none">
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-[#b76614] mb-4">1. Acceptance of Terms</h2>
+                    <p>Welcome to Women in Health Africa ("we," "our," or "us"). These Terms of Service ("Terms") govern your access to and use of our website, services, and applications (collectively, the "Services"). By accessing or using our Services, you agree to be bound by these Terms and our Privacy Policy.</p>
+                    
+                    <p class="mt-4">Please read these Terms carefully before using our Services. If you do not agree to these Terms, you may not access or use our Services. Your continued use of our Services constitutes acceptance of these Terms and any updates or modifications we may make.</p>
+                    
+                    <p class="mt-4">These Terms apply to all visitors, users, and others who access or use our Services. By using our Services, you represent that you are at least 16 years of age or the legal age in your jurisdiction to form a binding contract.</p>
+                </section>
+
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-[#b76614] mb-4">2. Use of Services</h2>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Permitted Use</h3>
+                    <p>We grant you a limited, non-exclusive, non-transferable, and revocable license to access and use our Services for your personal, non-commercial use, subject to these Terms. You may use our Services only for lawful purposes and in accordance with these Terms.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Prohibited Activities</h3>
+                    <p>You agree not to engage in any of the following activities:</p>
+                    <ul class="list-disc pl-6 mt-2 space-y-2">
+                        <li>Violate any applicable laws or regulations</li>
+                        <li>Infringe upon or violate our intellectual property rights or the intellectual property rights of others</li>
+                        <li>Harass, abuse, or harm another person or group</li>
+                        <li>Upload or transmit viruses or any other type of malicious code</li>
+                        <li>Collect or track the personal information of others</li>
+                        <li>Interfere with or disrupt the integrity or performance of our Services</li>
+                        <li>Attempt to gain unauthorized access to our Services or related systems or networks</li>
+                        <li>Use our Services for any illegal or unauthorized purpose</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">User Accounts</h3>
+                    <p>To access certain features of our Services, you may be required to create an account. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You agree to provide accurate, current, and complete information during the registration process and to update such information to keep it accurate, current, and complete.</p>
+                </section>
+
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-[#b76614] mb-4">3. Intellectual Property Rights</h2>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Ownership</h3>
+                    <p>All content, features, and functionality on our Services, including but not limited to text, graphics, logos, icons, images, audio clips, video clips, data compilations, and software, are the exclusive property of Women in Health Africa or our licensors and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Trademarks</h3>
+                    <p>The Women in Health Africa name, logo, and all related names, logos, product and service names, designs, and slogans are trademarks of Women in Health Africa or our affiliates or licensors. You must not use such marks without our prior written permission. All other names, logos, product and service names, designs, and slogans on our Services are the trademarks of their respective owners.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">License to Use Content</h3>
+                    <p>Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, non-sublicensable license to access, view, and use our Services and content solely for your personal, non-commercial use. No right, title, or interest in or to the Services or any content on the Services is transferred to you, and all rights not expressly granted are reserved by us.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">User Contributions</h3>
+                    <p>If you submit, post, or display any content on or through our Services ("User Contributions"), you grant us a worldwide, non-exclusive, royalty-free, sublicensable, and transferable license to use, reproduce, distribute, prepare derivative works of, display, and perform such User Contributions in connection with our Services and our business.</p>
+                </section>
+
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-[#b76614] mb-4">4. User Accounts and Security</h2>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Account Registration</h3>
+                    <p>To access certain features of our Services, you may need to register for an account. When you register, you agree to provide accurate, current, and complete information. You are solely responsible for the activity that occurs on your account and for keeping your account password secure.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Account Security</h3>
+                    <p>You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You agree to immediately notify us of any unauthorized use of your account or any other breach of security. We will not be liable for any loss or damage arising from your failure to comply with this section.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Account Termination</h3>
+                    <p>We reserve the right to refuse service, terminate accounts, remove or edit content, or cancel orders in our sole discretion. We may suspend or terminate your account and your access to the Services at any time, with or without notice, for conduct that we believe violates these Terms or is harmful to other users of the Services, us, or third parties, or for any other reason.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">User Responsibilities</h3>
+                    <p>You agree not to:</p>
+                    <ul class="list-disc pl-6 mt-2 space-y-2">
+                        <li>Use another user's account without permission</li>
+                        <li>Create multiple accounts for the purpose of abusing our Services</li>
+                        <li>Impersonate any person or entity or misrepresent your affiliation with any person or entity</li>
+                        <li>Use our Services in any manner that could disable, overburden, damage, or impair the site or interfere with any other party's use of our Services</li>
+                    </ul>
+                </section>
+
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-[#b76614] mb-4">5. Donations and Payments</h2>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Donation Policy</h3>
+                    <p>All donations made through our Services are voluntary and non-refundable, except in the case of an error made by Women in Health Africa. We reserve the right to refuse or return any donation at our discretion, including if we suspect fraudulent activity.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Payment Processing</h3>
+                    <p>We use third-party payment processors to handle all donations. By making a donation, you agree to provide current, complete, and accurate purchase and account information. You further agree to promptly update your account and payment information, including email address, payment method, and payment card expiration date, so that we can complete your transactions and contact you as needed.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Recurring Donations</h3>
+                    <p>If you choose to make a recurring donation, you authorize us to charge your payment method on a recurring basis until you cancel. You may cancel your recurring donation at any time by contacting us or through your account settings, if available.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Tax Deductibility</h3>
+                    <p>Women in Health Africa is a registered [insert organization type, e.g., 501(c)(3) nonprofit organization]. Donations may be tax-deductible to the extent allowed by law. Please consult with your tax advisor regarding the deductibility of your donation.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Refund Policy</h3>
+                    <p>All donations are final and non-refundable. However, if you believe there has been an error in processing your donation, please contact us within 30 days of the transaction date. We will review your request and process refunds at our sole discretion.</p>
+                </section>
+
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-[#b76614] mb-4">6. Disclaimers and Limitation of Liability</h2>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Disclaimer of Warranties</h3>
+                    <p>YOUR USE OF OUR SERVICES IS AT YOUR OWN RISK. THE SERVICES ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT ANY WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, WOMEN IN HEALTH AFRICA DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Limitation of Liability</h3>
+                    <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL WOMEN IN HEALTH AFRICA, ITS OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, OR AFFILIATES BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, RESULTING FROM:</p>
+                    <ul class="list-disc pl-6 mt-2 space-y-2">
+                        <li>YOUR ACCESS TO OR USE OF OR INABILITY TO ACCESS OR USE THE SERVICES</li>
+                        <li>ANY CONDUCT OR CONTENT OF ANY THIRD PARTY ON THE SERVICES</li>
+                        <li>ANY CONTENT OBTAINED FROM THE SERVICES</li>
+                        <li>UNAUTHORIZED ACCESS, USE, OR ALTERATION OF YOUR TRANSMISSIONS OR CONTENT</li>
+                        <li>ANY OTHER MATTER RELATING TO THE SERVICES</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Indemnification</h3>
+                    <p>You agree to defend, indemnify, and hold harmless Women in Health Africa, its officers, directors, employees, agents, and affiliates from and against any claims, liabilities, damages, judgments, awards, losses, costs, expenses, or fees (including reasonable attorneys' fees) arising out of or relating to your violation of these Terms or your use of the Services, including, but not limited to, any use of the Services' content, services, and products other than as expressly authorized in these Terms.</p>
+                </section>
+
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-[#b76614] mb-4">7. Modifications to Terms</h2>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Changes to Terms</h3>
+                    <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If we make material changes, we will provide notice through our Services or by other means to give you the opportunity to review the changes before they become effective. Your continued use of our Services after the effective date of the revised Terms constitutes your acceptance of the terms.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Service Modifications</h3>
+                    <p>We reserve the right to modify, suspend, or discontinue, temporarily or permanently, the Services or any features or portions thereof without prior notice. You agree that we will not be liable for any modification, suspension, or discontinuance of the Services or any part thereof.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Termination</h3>
+                    <p>We may terminate or suspend your access to our Services immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach these Terms. Upon termination, your right to use the Services will immediately cease.</p>
+                </section>
+
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-[#b76614] mb-4">8. Governing Law and Dispute Resolution</h2>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Governing Law</h3>
+                    <p>These Terms shall be governed by and construed in accordance with the laws of [Your Country/State], without regard to its conflict of law provisions. The United Nations Convention on Contracts for the International Sale of Goods is expressly excluded.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Dispute Resolution</h3>
+                    <p>Any dispute arising out of or relating to these Terms or our Services shall be resolved through good faith negotiations between the parties. If the dispute cannot be resolved through negotiations, the dispute shall be submitted to binding arbitration in accordance with the rules of [Arbitration Association]. The arbitration shall take place in [City, Country/State] and shall be conducted in the [Language] language.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Class Action Waiver</h3>
+                    <p>YOU AGREE THAT ANY DISPUTE RESOLUTION PROCEEDINGS WILL BE CONDUCTED ONLY ON AN INDIVIDUAL BASIS AND NOT IN A CLASS, CONSOLIDATED, OR REPRESENTATIVE ACTION. YOU AGREE TO WAIVE ANY RIGHT TO PARTICIPATE IN A CLASS ACTION LAWSUIT OR CLASS-WIDE ARBITRATION.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Severability</h3>
+                    <p>If any provision of these Terms is held to be invalid, illegal, or unenforceable for any reason, such provision shall be eliminated or limited to the minimum extent possible, and the remaining provisions of these Terms will continue in full force and effect.</p>
+                </section>
+                
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-[#b76614] mb-4">9. Miscellaneous</h2>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Entire Agreement</h3>
+                    <p>These Terms, together with our Privacy Policy and any other legal notices published by us on the Services, shall constitute the entire agreement between you and Women in Health Africa concerning the Services.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Waiver and Severability</h3>
+                    <p>Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Assignment</h3>
+                    <p>You may not assign or transfer these Terms, by operation of law or otherwise, without our prior written consent. Any attempt by you to assign or transfer these Terms without such consent will be null and void. We may freely assign or transfer these Terms without restriction.</p>
+                </section>
+                
+                <section>
+                    <h2 class="text-2xl font-bold text-[#b76614] mb-4">10. Contact Us</h2>
+                    <p>If you have any questions about these Terms of Service, please contact us at:</p>
+                    
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                        <p class="font-medium">Women in Health Africa</p>
+                        <p>Email: <a href="mailto:info@womeninhealthafrica.org" class="text-[#b76614] hover:underline">info@womeninhealthafrica.org</a></p>
+                        <p>Mailing Address: [Your Organization's Full Address]</p>
+                        <p>Phone: [Your Contact Number]</p>
+                    </div>
+                    
+                    <p class="mt-4">We will make every effort to respond to your inquiries within a reasonable timeframe.</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[var(--footer-bg)] text-[var(--footer-text)] py-12">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                <!-- About Section -->
+                <div class="flex flex-col items-start">
+                    <h3 class="text-lg font-semibold mb-4">About Us</h3>
+                    <p class="text-sm mb-6 max-w-md">Empowering women in health across Africa through education, connection, and support.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-[var(--footer-text)] hover:text-[#1877f2] transition-colors duration-200" target="_blank">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="http://www.youtube.com/@Dr_Kiki" class="text-[var(--footer-text)] hover:text-[#ff0000] transition-colors duration-200" target="_blank">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com/hermosa_mimosa_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="text-[var(--footer-text)] hover:text-[#e1306c] transition-colors duration-200" target="_blank">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-[var(--footer-text)] hover:text-[#000000] group transition-colors duration-200" target="_blank">
+                            <i class="fab fa-tiktok text-xl group-hover:text-[#00f2ea]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Newsletter Section -->
+                <div class="flex flex-col items-start">
+                    <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
+                    <div class="w-full max-w-md">
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <input type="email" id="footer-newsletter-email" placeholder="Enter your email" class="flex-1 px-4 py-2 rounded-md border border-[var(--accent-color)] bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)]" required>
+                            <button type="button" onclick="validateFooterNewsletterForm(event)" class="px-6 py-2 bg-[var(--primary-color)] text-white rounded-lg hover:bg-opacity-90 transition-all duration-200 font-medium">
+                                Subscribe
+                            </button>
+                        </div>
+                        <p class="text-sm mt-3">Stay updated with our latest news and updates</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-[var(--accent-color)] mt-12 pt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-sm mb-4 md:mb-0">&copy; 2026 Women in Health Africa. All rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="privacy-policy.html" class="text-sm hover:underline">Privacy Policy</a>
+                        <a href="terms-of-service.html" class="text-sm hover:underline">Terms of Service</a>
+                        <a href="cookie-policy.html" class="text-sm hover:underline">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<!-- JavaScript for Mobile Menu -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function openMenu() {
+            mobileMenuOverlay.classList.remove('hidden');
+            setTimeout(() => {
+                mobileMenu.classList.remove('translate-x-full');
+            }, 10);
+        }
+
+        function closeMenu() {
+            mobileMenu.classList.add('translate-x-full');
+            setTimeout(() => {
+                mobileMenuOverlay.classList.add('hidden');
+            }, 300);
+        }
+
+        mobileMenuButton.addEventListener('click', openMenu);
+        closeMobileMenuButton.addEventListener('click', closeMenu);
+        mobileMenuOverlay.addEventListener('click', function(event) {
+            if (event.target === mobileMenuOverlay) {
+                closeMenu();
+            }
+        });
+
+        // Mobile submenu toggles
+        const submenuToggles = document.querySelectorAll('.mobile-submenu-toggle');
+        submenuToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const submenu = toggle.nextElementSibling;
+                const icon = toggle.querySelector('.material-icons');
+                
+                submenu.classList.toggle('hidden');
+                if (submenu.classList.contains('hidden')) {
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        if (backToTopButton) {
+            // Show/hide button based on scroll position
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.style.display = 'block';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+
+            // Smooth scroll to top when clicked
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+    });
+</script>
+</div>
+
+    <!-- Universal Confirmation Script -->
+    <script src="js/universal-confirmations.js"></script>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Loading Animation Script -->
+    <script>
+      // Function to hide loading screen
+      function hideLoadingScreen() {
+          const loadingScreen = document.getElementById('loading-screen');
+          const mainContent = document.querySelector('.main-content');
+          
+          if (loadingScreen) {
+              loadingScreen.classList.remove('loading-fade-in');
+              loadingScreen.classList.add('loading-fade-out');
+              
+              setTimeout(() => {
+                  if (mainContent) {
+                      mainContent.classList.add('loaded');
+                  }
+                  
+                  setTimeout(() => {
+                      if (loadingScreen) {
+                          loadingScreen.style.display = 'none';
+                      }
+                  }, 500);
+              }, 200);
+          }
+      }
+      
+      // Start loading animation on DOM content loaded
+      document.addEventListener('DOMContentLoaded', function() {
+          const loadingScreen = document.getElementById('loading-screen');
+          
+          if (loadingScreen) {
+              loadingScreen.classList.add('loading-fade-in');
+          }
+          
+          // Hide loading screen when page is fully loaded
+          window.addEventListener('load', hideLoadingScreen);
+          
+          // Fallback: hide loading screen after 2 seconds if load event doesn't fire
+          setTimeout(hideLoadingScreen, 2000);
+      });
+    </script>
+    
+    <!-- Footer Newsletter Validation Script -->
+    <script>
+        function validateFooterNewsletterForm(event) {
+            // Prevent default behavior and stop propagation
+            event.preventDefault();
+            event.stopPropagation();
+            
+            const emailInput = document.getElementById('footer-newsletter-email');
+            const email = emailInput.value.trim();
+            
+            // Clear previous error messages
+            clearFieldError(emailInput);
+            
+            let isValid = true;
+            
+            // Validate email
+            if (email === '') {
+                showFieldError(emailInput, 'Email is required');
+                isValid = false;
+            } else if (!isValidEmail(email)) {
+                showFieldError(emailInput, 'Please enter a valid email address');
+                isValid = false;
+            }
+            
+            // If validation passes, show confirmation
+            if (isValid) {
+                // Trigger the universal confirmation
+                if (window.universalConfirmation) {
+                    window.universalConfirmation.showConfirmationPopup(
+                        'Subscription Successful!',
+                        'Thank you for subscribing to our newsletter. You\'ll receive our latest updates in your inbox.',
+                        'email',
+                        'blue'
+                    );
+                }
+                
+                // Reset form after showing confirmation
+                setTimeout(() => {
+                    emailInput.value = '';
+                }, 1000);
+            }
+            
+            return false;
+        }
+        
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+        
+        function showFieldError(field, message) {
+            clearFieldError(field);
+            
+            // Add red border to indicate error
+            field.classList.add('border-red-500');
+            
+            // Set error message as placeholder to show inside the input
+            field.placeholder = message;
+            field.classList.add('text-red-500');
+            
+            // Clear placeholder on focus
+            field.addEventListener('focus', function() {
+                if (field.placeholder === message) {
+                    field.placeholder = 'Enter your email';
+                    field.classList.remove('text-red-500');
+                }
+            }, { once: true });
+        }
+        
+        function clearFieldError(field) {
+            field.classList.remove('border-red-500');
+            field.classList.remove('text-red-500');
+            
+            // Reset placeholder to default
+            if (field.placeholder === 'Email is required' || field.placeholder === 'Please enter a valid email address') {
+                field.placeholder = 'Enter your email';
+            }
+            
+            // Remove any external error divs (for backwards compatibility)
+            const errorDiv = field.parentNode.querySelector('.field-error');
+            if (errorDiv) {
+                errorDiv.remove();
+            }
+        }
+    </script>
+
+    <script src="js/newsletter.js"></script>
+    
+    
+    <script>
+        // Mobile submenu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all mobile submenu toggle buttons
+            const submenuToggles = document.querySelectorAll('.mobile-submenu-toggle');
+            
+            // Add click event listeners to each toggle button
+            submenuToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    // Toggle the 'active' class on the parent menu item
+                    const menuItem = this.closest('.mobile-menu-item');
+                    menuItem.classList.toggle('active');
+                    
+                    // Toggle the submenu visibility
+                    const submenu = this.nextElementSibling;
+                    submenu.classList.toggle('hidden');
+                    
+                    // Rotate the arrow icon
+                    const arrow = this.querySelector('.material-icons');
+                    if (arrow) {
+                        arrow.classList.toggle('rotate-180');
+                    }
+                });
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileMenuLinks = document.querySelectorAll('#mobile-menu a:not([data-donate])');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    closeMenu();
+                });
+            });
+        });
+    </script>
+
+    <!-- Donation Popup -->
+    <div id="donation-popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-6 max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-gray-900">Support Our Cause</h3>
+                <button id="close-donation-popup" class="text-gray-500 hover:text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            <p class="text-gray-600 mb-6">Your donation helps us continue our mission. Thank you for your support!</p>
+            <div class="space-y-4">
+                <button class="w-full bg-yellow-300 hover:bg-yellow-400 text-gray-800 font-bold py-3 px-4 rounded transition duration-200">
+                    $25
+                </button>
+                <button class="w-full bg-yellow-300 hover:bg-yellow-400 text-gray-800 font-bold py-3 px-4 rounded transition duration-200">
+                    $50
+                </button>
+                <button class="w-full bg-yellow-300 hover:bg-yellow-400 text-gray-800 font-bold py-3 px-4 rounded transition duration-200">
+                    $100
+                </button>
+                <div class="relative mt-2">
+                    <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">$</span>
+                    <input type="number" placeholder="Other amount" class="w-full pl-8 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                </div>
+                <button class="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-4 rounded transition duration-200 mt-4">
+                    Donate Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Donation popup functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show popup
+            document.querySelectorAll('[data-donate]').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.getElementById('donation-popup').classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            // Close popup
+            document.getElementById('close-donation-popup').addEventListener('click', function() {
+                document.getElementById('donation-popup').classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+
+            // Close when clicking outside
+            document.getElementById('donation-popup').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+    </script>
+    
+    
+    <script src="js/mobile-menu-fix.js"></script>
+</body>
+</html>
